@@ -4,7 +4,7 @@ module Wikibase
       class Item
         ENTITY_TYPE = 'item'
 
-        attr_accessor :id, :fingerprint, :sitelinks, :statements
+        attr_reader :id, :fingerprint, :sitelinks, :statements
 
         def initialize(id:, fingerprint: Fingerprint.new, sitelinks: SiteLinkList.new, statements: StatementList.new)
           @id = id
@@ -27,7 +27,7 @@ module Wikibase
 
         def set_label(language_code, value)
           @fingerprint.set_label(language_code, value)
-        end 
+        end
 
         def set_description(language_code, value)
           @fingerprint.set_description(language_code, value)
@@ -53,7 +53,7 @@ module Wikibase
           @sitelinks.has_link_with_site_id?(site_id)
         end
 
-        def is_empty?
+        def empty?
           @fingerprint.empty? && @sitelinks.empty? && @statements.empty?
         end
 

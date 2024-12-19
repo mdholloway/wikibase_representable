@@ -13,8 +13,8 @@ module Wikibase
         def set_term(term)
           if term.text == ''
             @terms.delete(language)
-          else 
-            @terms[term.language] = term            
+          else
+            @terms[term.language] = term
           end
         end
 

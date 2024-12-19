@@ -4,7 +4,7 @@ module Wikibase
       def initialize(snaks: [])
         @snaks = snaks
       end
-      
+
       def empty?
         @snaks.empty?
       end

@@ -12,7 +12,7 @@ module Wikibase
         def empty?
           @aliases.empty?
         end
-      end 
+      end
     end
   end
 end

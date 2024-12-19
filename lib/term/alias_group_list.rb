@@ -11,9 +11,9 @@ module Wikibase
         end
 
         def set_group(group)
-          if (group.is_empty?)
+          if group.empty?
             @groups.delete(group.language)
-          else 
+          else
             @groups[group.language] = group
           end
         end
@@ -21,7 +21,7 @@ module Wikibase
         def remove_by_language(language)
           @groups.delete(language)
         end
-          
+
         def has_group_for_language?(language)
           @groups.has_key?(language)
         end

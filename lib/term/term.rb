@@ -5,7 +5,7 @@ module Wikibase
         attr_reader :language, :value
 
         def initialize(language:, value:)
-          @language = language           
+          @language = language
           @value = value
         end
       end

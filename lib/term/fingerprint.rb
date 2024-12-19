@@ -2,7 +2,7 @@ module Wikibase
   module DataModel
     module Term
       class Fingerprint
-        attr_accessor :labels, :descriptions, :alias_groups
+        attr_reader :labels, :descriptions, :alias_groups
 
         def initialize(labels: TermList.new, descriptions: TermList.new, alias_groups: AliasGroupList.new)
           @labels = labels
