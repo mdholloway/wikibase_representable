@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module Wikibase
   module DataModel
+    # Hash of SiteLink objects keyed by site id.
     class SiteLinkList
       def initialize(site_links: {})
         @site_links = site_links
@@ -9,8 +12,8 @@ module Wikibase
         @site_links.fetch(site_id)
       end
 
-      def has_link_with_site_id(site_id)
-        @site_links.has_key?(site_id)
+      def link_with_site_id?(site_id)
+        @site_links.key?(site_id)
       end
 
       def empty?

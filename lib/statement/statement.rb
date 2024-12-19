@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 module Wikibase
   module DataModel
     module Statement
+      # Class representing a Wikibase statement.
+      # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Statements
       class Statement
         RANK_PREFERRED = 2
         RANK_NORMAL = 1
@@ -12,10 +16,11 @@ module Wikibase
           @mainsnak = mainsnak
           @qualifiers = qualifiers
           @references = references
+          @rank = rank
           @guid = guid
         end
 
-        def get_property_id
+        def property_id
           @mainsnak.property_id
         end
       end

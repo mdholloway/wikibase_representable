@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module Wikibase
   module DataModel
     module Term
+      # Hash of AliasGroup objects keyed by language code.
       class AliasGroupList
         def initialize(groups: {})
           @groups = groups
@@ -10,7 +13,7 @@ module Wikibase
           @groups.fetch(language)
         end
 
-        def set_group(group)
+        def group(group)
           if group.empty?
             @groups.delete(group.language)
           else
@@ -22,11 +25,11 @@ module Wikibase
           @groups.delete(language)
         end
 
-        def has_group_for_language?(language)
-          @groups.has_key?(language)
+        def group_for_language?(language)
+          @groups.key?(language)
         end
 
-        def set_aliases_for_language(language, aliases)
+        def aliases_for_language(language, aliases)
           set_group(AliasGroup.new(language_code: language, aliases: aliases))
         end
 

@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module Wikibase
   module DataModel
     module Term
+      #  Hash of Term objects keyed by language code.
       class TermList
         def initialize(terms: {})
           @terms = terms
@@ -10,7 +13,7 @@ module Wikibase
           @terms.fetch(language)
         end
 
-        def set_term(term)
+        def term(term)
           if term.text == ''
             @terms.delete(language)
           else
@@ -22,12 +25,12 @@ module Wikibase
           @terms.delete(language)
         end
 
-        def has_term_for_language?(language)
-          @terms.has_key?(language)
+        def term_for_language?(language)
+          @terms.key?(language)
         end
 
-        def set_text_for_language(language, value)
-          set_term(Term.new(language, value))
+        def text_for_language(language, value)
+          term(Term.new(language, value))
         end
 
         def empty?

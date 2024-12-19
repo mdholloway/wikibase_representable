@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 module Wikibase
   module DataModel
     module Snak
+      # Class representing a property no value snak.
+      # See https://www.mediawiki.org/wiki/Wikibase/DataModel#PropertyNoValueSnak
       class PropertyNoValueSnak < Snak
-        def initialize(property_id:)
-          @property_id = property_id
-        end
-
         def type
           'novalue'
         end

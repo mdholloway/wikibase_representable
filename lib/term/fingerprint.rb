@@ -1,6 +1,11 @@
+# frozen_string_literal: true
+
 module Wikibase
   module DataModel
     module Term
+      # A container for all labels, all descriptions and all aliases (in all languages) of entities that
+      # support all three term types. Should not be used for entity types that only support one or two of
+      # these term types.
       class Fingerprint
         attr_reader :labels, :descriptions, :alias_groups
 
@@ -10,7 +15,7 @@ module Wikibase
           @alias_groups = alias_groups
         end
 
-        def has_label?(language)
+        def label?(language)
           @labels.has_term_for_language(language)
         end
 
@@ -26,7 +31,7 @@ module Wikibase
           @labels.remove_by_language(language)
         end
 
-        def has_description?(language)
+        def description?(language)
           @descriptions.has_term_for_language(language)
         end
 
@@ -42,7 +47,7 @@ module Wikibase
           @descriptions.remove_by_language(language)
         end
 
-        def has_alias_group?(language)
+        def alias_group?(language)
           @alias_groups.has_group_for_language(language)
         end
 

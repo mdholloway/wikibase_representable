@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 module Wikibase
   module DataModel
     module Entity
+      # Represents a single Wikibase item.
+      # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Items
       class Item
         ENTITY_TYPE = 'item'
 
@@ -49,7 +53,7 @@ module Wikibase
           @sitelinks.get_by_site_id(site_id)
         end
 
-        def has_link_to_site?(site_id)
+        def link_to_site?(site_id)
           @sitelinks.has_link_with_site_id?(site_id)
         end
 

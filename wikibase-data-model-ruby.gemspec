@@ -7,12 +7,13 @@ Gem::Specification.new do |spec|
   spec.email         = ['michael@mdholloway.org']
 
   spec.summary       = 'Wikibase data model classes'
-  spec.description   = 'This is a partial port of the Wikibase DataModel classes from PHP to Ruby, focused on the needs of consumers.'
+  spec.description   = 'A partial port of the Wikibase DataModel classes from PHP to Ruby.'
   spec.license       = 'MIT'
 
   spec.files         = Dir['lib/**/*.rb']
   spec.require_paths = ['lib']
 
+  spec.required_ruby_version = '>= 3.3'
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubocop', '~> 1.69'
