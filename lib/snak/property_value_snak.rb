@@ -8,8 +8,8 @@ module Wikibase
       class PropertyValueSnak < Snak
         attr_reader :data_value
 
-        def initialize(property_id:, data_value:)
-          super(property_id: property_id)
+        def initialize(property:, data_value:, hash:)
+          super(property: property, hash: hash)
           @data_value = data_value
         end
 

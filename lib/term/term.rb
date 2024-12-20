@@ -5,10 +5,10 @@ module Wikibase
     module Term
       # Immutable value object.
       class Term
-        attr_reader :language, :value
+        attr_reader :language_code, :value
 
-        def initialize(language:, value:)
-          @language = language
+        def initialize(language_code:, value:)
+          @language = language_code
           @value = value
         end
       end

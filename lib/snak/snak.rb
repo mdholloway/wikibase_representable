@@ -6,10 +6,11 @@ module Wikibase
       # Objects that represents a generic Wikibase snak.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Snaks
       class Snak
-        attr_reader :property_id
+        attr_reader :property, :hash
 
-        def initialize(property_id:)
-          @property_id = property_id
+        def initialize(property:, hash:)
+          @property = property
+          @hash = hash
         end
       end
     end

@@ -6,14 +6,15 @@ module Wikibase
       # Class representing a Wikibase statement.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Statements
       class Statement
-        RANK_PREFERRED = 2
-        RANK_NORMAL = 1
-        RANK_DEPRECATED = 0
+        RANK_PREFERRED = 'preferred'
+        RANK_NORMAL = 'normal'
+        RANK_DEPRECATED = 'deprecated'
 
-        attr_reader :mainsnak, :qualifiers, :references, :rank, :guid
+        attr_reader :main_snak, :qualifiers, :references, :rank, :guid
 
-        def initialize(mainsnak:, qualifiers: SnakList.new, references: ReferenceList.new, rank: RANK_NORMAL, guid: nil)
-          @mainsnak = mainsnak
+        def initialize(main_snak:, qualifiers: SnakList.new, references: ReferenceList.new, rank: RANK_NORMAL,
+                       guid: nil)
+          @main_snak = main_snak
           @qualifiers = qualifiers
           @references = references
           @rank = rank
@@ -21,7 +22,7 @@ module Wikibase
         end
 
         def property_id
-          @mainsnak.property_id
+          @main_snak.property_id
         end
       end
     end

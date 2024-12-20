@@ -5,10 +5,10 @@ module Wikibase
     module Term
       # Ordered list of aliases. Immutable value object.
       class AliasGroup
-        attr_reader :language, :aliases
+        attr_reader :language_code, :aliases
 
-        def initialize(language:, aliases: [])
-          @language = language
+        def initialize(language_code:, aliases: [])
+          @language_code = language_code
           @aliases = aliases
         end
 

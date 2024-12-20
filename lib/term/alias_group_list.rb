@@ -9,28 +9,28 @@ module Wikibase
           @groups = groups
         end
 
-        def get_by_language(language)
-          @groups.fetch(language)
+        def get_by_language(language_code)
+          @groups.fetch(language_code)
         end
 
         def group(group)
           if group.empty?
-            @groups.delete(group.language)
+            @groups.delete(group.language_code)
           else
-            @groups[group.language] = group
+            @groups[group.language_code] = group
           end
         end
 
-        def remove_by_language(language)
-          @groups.delete(language)
+        def remove_by_language(language_code)
+          @groups.delete(language_code)
         end
 
-        def group_for_language?(language)
-          @groups.key?(language)
+        def group_for_language?(language_code)
+          @groups.key?(language_code)
         end
 
-        def aliases_for_language(language, aliases)
-          set_group(AliasGroup.new(language_code: language, aliases: aliases))
+        def aliases_for_language(language_code, aliases)
+          set_group(AliasGroup.new(language_code: language_code, aliases: aliases))
         end
 
         def empty?
