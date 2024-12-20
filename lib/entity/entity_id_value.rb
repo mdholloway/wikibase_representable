@@ -7,6 +7,8 @@ module Wikibase
       class EntityIdValue < DataValue
         TYPE = 'wikibase-entityid'
 
+        attr_reader :id, :entity_type, :numeric_id
+
         def initialize(id:, entity_type:, numeric_id:)
           super(type: TYPE)
           @id = id
