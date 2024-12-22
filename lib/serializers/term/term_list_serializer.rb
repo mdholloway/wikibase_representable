@@ -8,7 +8,7 @@ module Wikibase
       # Serializer for a hash of (language_code => term)
       class TermListSerializer < Representable::Decorator
         include Representable::JSON::Hash
-        
+
         values decorator: TermSerializer, class: Term
       end
     end

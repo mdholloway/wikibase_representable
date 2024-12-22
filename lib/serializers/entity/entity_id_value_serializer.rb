@@ -9,8 +9,8 @@ module Wikibase
       class EntityIdValueSerializer < Representable::Decorator
         include Representable::JSON
 
-        property :entity-type
-        property :numeric-id
+        property :'entity-type'
+        property :'numeric-id'
         property :id
       end
     end

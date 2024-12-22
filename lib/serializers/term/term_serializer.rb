@@ -8,7 +8,7 @@ module Wikibase
       # Serializer for a term object
       class TermSerializer < Representable::Decorator
         include Representable::JSON
-        
+
         property :language
         property :value
       end

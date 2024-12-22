@@ -13,7 +13,7 @@ module Wikibase
         property :id
         property :labels, decorator: TermListSerializer, class: TermList
         property :descriptions, decorator: TermListSerializer, class: TermList
-        property :aliases: decorator: AliasGroupListSerializer, class: AliasGroupList
+        property :aliases, decorator: AliasGroupListSerializer, class: AliasGroupList
         property :claims, decorator: StatementListSerializer, class: StatementList
         property :sitelinks, decorator: SiteLinkListSerializer, class: SiteLinkList
       end

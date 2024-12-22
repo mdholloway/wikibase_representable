@@ -6,9 +6,9 @@ module Wikibase
   module Serializers
     module Snak
       # Serializer for property value snaks.
-      class PropertyValueSnakSerializer< Representable::Decorator
+      class PropertyValueSnakSerializer < Representable::Decorator
         include Representable::JSON
-        
+
         property :property
         property :hash
         property :datavalue, decorator: DataValueSerializer, class: DataValue
