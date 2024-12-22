@@ -5,16 +5,19 @@ module Wikibase
     module Snak
       # Class representing a property value snak.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#PropertyValueSnak
-      class PropertyValueSnak < Snak
-        attr_reader :data_value
+      class PropertyValueSnak
+        SNAK_TYPE = 'value'
 
-        def initialize(property:, data_value:, hash:)
-          super(property: property, hash: hash)
+        attr_reader :property, :data_value, :hash
+
+        def initialize(property_id:, data_value:, hash:)
+          @property = property_id
           @data_value = data_value
+          @hash = hash
         end
 
         def type
-          'value'
+          SNAK_TYPE
         end
       end
     end
