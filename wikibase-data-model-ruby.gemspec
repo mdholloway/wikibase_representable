@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['michael@mdholloway.org']
 
   spec.summary       = 'Wikibase data model classes'
-  spec.description   = 'A partial port of the Wikibase DataModel classes from PHP to Ruby.'
+  spec.description   = 'Library for working with Wikibase data fluently in Ruby'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.3'
   spec.metadata['rubygems_mfa_required'] = 'true'
