@@ -8,16 +8,25 @@ module Wikibase
       class PropertyValueSnak
         SNAK_TYPE = 'value'
 
-        attr_reader :property, :data_value, :hash
+        attr_accessor :type, :property_id, :data_value, :hash
 
-        def initialize(property_id:, data_value:, hash:)
-          @property = property_id
+        def initialize(type: SNAK_TYPE, property_id: nil, data_value: nil, hash: nil)
+          @type = type
+          @property_id = property_id
           @data_value = data_value
           @hash = hash
         end
 
-        def type
-          SNAK_TYPE
+        def ==(other)
+          other.is_a?(self.class) &&
+            other.type == type &&
+            other.property_id == property_id &&
+            other.data_value == data_value &&
+            other.hash == hash
+        end
+
+        def eql?(other)
+          self == other
         end
       end
     end

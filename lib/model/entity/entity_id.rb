@@ -1,33 +1,20 @@
 # frozen_string_literal: true
 
-require 'model/data_value/data_value'
-
 module Wikibase
   module DataModel
     module Entity
       # Data value representing an entity ID data value
-      class EntityIdValue < Wikibase::DataModel::DataValue::DataValue
-        TYPE = 'wikibase-entityid'
+      class EntityId
+        attr_accessor :id, :numeric_id, :entity_type
 
-        def initialize(value: nil)
-          super(type: TYPE, value: value)
-        end
-
-        def id
-          @value.id
-        end
-
-        def entity_type
-          @value.entity_type
-        end
-
-        def numeric_id
-          @value.numeric_id
+        def initialize(id: nil, numeric_id: nil, entity_type: nil)
+          @id = id
+          @numeric_id = numeric_id
+          @entity_type = entity_type
         end
 
         def ==(other)
           other.is_a?(self.class) &&
-            type == other.type &&
             id == other.id &&
             entity_type == other.entity_type &&
             numeric_id == other.numeric_id

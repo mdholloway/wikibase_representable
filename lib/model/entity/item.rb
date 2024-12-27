@@ -1,44 +1,46 @@
 # frozen_string_literal: true
 
+require 'model/site_link_list'
+require 'model/term/alias_group_list'
+require 'model/term/term_list'
+require 'model/statement/statement_list'
+
 module Wikibase
   module DataModel
     module Entity
       # Represents a single Wikibase item.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Items
       class Item
+        include Wikibase::DataModel
+        include Wikibase::DataModel::Statement
+        include Wikibase::DataModel::Term
+
         ENTITY_TYPE = 'item'
 
-        attr_reader :id, :fingerprint, :sitelinks, :statements
+        attr_accessor :type, :id, :labels, :descriptions, :alias_groups, :sitelinks, :statements
 
-        def initialize(id:, fingerprint: Fingerprint.new, sitelinks: SiteLinkList.new, statements: StatementList.new)
+        def initialize(type: ENTITY_TYPE, id: nil, labels: TermList.new,
+                       descriptions: TermList.new, alias_groups: AliasGroupList.new,
+                       sitelinks: SiteLinkList.new, statements: StatementList.new)
+          @type = type
           @id = id
-          @fingerprint = fingerprint
+          @labels = labels
+          @descriptions = descriptions
+          @alias_groups = alias_groups
           @sitelinks = sitelinks
           @statements = statements
         end
 
-        def labels
-          @fingerprint.labels
-        end
-
-        def descriptions
-          @fingerprint.descriptions
-        end
-
-        def alias_groups
-          @fingerprint.alias_groups
-        end
-
         def set_label(language_code, value)
-          @fingerprint.set_label(language_code, value)
+          @labels.term(Term.new(language_code, value))
         end
 
         def set_description(language_code, value)
-          @fingerprint.set_description(language_code, value)
+          @descriptions.term(Term.new(language_code, value))
         end
 
         def set_aliases(language_code, aliases)
-          @fingerprint.set_aliases(language_code, aliases)
+          @alias_groups.aliases_for_language(language_code, aliases)
         end
 
         def add_site_link(site_link)
@@ -58,11 +60,22 @@ module Wikibase
         end
 
         def empty?
-          @fingerprint.empty? && @sitelinks.empty? && @statements.empty?
+          @labels.empty? && @descriptions.empty? && @alias_groups.empty? && @sitelinks.empty? && @statements.empty?
         end
 
-        def type
-          ENTITY_TYPE
+        def ==(other)
+          other.is_a?(self.class) &&
+            @type == other.type &&
+            @id == other.id &&
+            @labels == other.labels &&
+            @descriptions == other.descriptions &&
+            @alias_groups == other.alias_groups &&
+            @sitelinks == other.sitelinks &&
+            @statements == other.statements
+        end
+
+        def eql?(other)
+          self == other
         end
       end
     end

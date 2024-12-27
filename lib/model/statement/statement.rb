@@ -1,28 +1,39 @@
 # frozen_string_literal: true
 
+require 'model/snak/snak_list'
+
 module Wikibase
   module DataModel
     module Statement
       # Class representing a Wikibase statement.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Statements
       class Statement
+        include Wikibase::DataModel::Snak
+
+        TYPE = 'statement'
+
         RANK_PREFERRED = 'preferred'
         RANK_NORMAL = 'normal'
         RANK_DEPRECATED = 'deprecated'
 
-        attr_reader :main_snak, :qualifiers, :references, :rank, :guid
+        attr_accessor :type, :main_snak, :qualifiers, :rank, :guid
 
-        def initialize(main_snak:, qualifiers: SnakList.new, references: ReferenceList.new, rank: RANK_NORMAL,
+        def initialize(type: TYPE, main_snak: nil, qualifiers: SnakList.new, rank: RANK_NORMAL,
                        guid: nil)
+          @type = type
           @main_snak = main_snak
           @qualifiers = qualifiers
-          @references = references
           @rank = rank
           @guid = guid
         end
 
-        def property_id
-          @main_snak.property_id
+        def ==(other)
+          other.is_a?(self.class) &&
+            other.type == type &&
+            other.main_snak == main_snak &&
+            other.qualifiers == qualifiers &&
+            other.rank == rank &&
+            other.guid == guid
         end
       end
     end

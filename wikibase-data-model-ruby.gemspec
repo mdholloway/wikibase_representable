@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'A partial port of the Wikibase DataModel classes from PHP to Ruby.'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.3'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.files         = Dir['lib/**/*.rb']
   spec.require_paths = ['lib']
@@ -20,4 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 13.2'
   spec.add_development_dependency 'rspec', '~> 3.13'
   spec.add_development_dependency 'rubocop', '~> 1.69'
+  spec.add_development_dependency 'rubocop-rake', '~> 0.6'
+  spec.add_development_dependency 'rubocop-rspec', '~> 3.3'
 end

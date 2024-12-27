@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
+require 'model/entity/entity_id'
 require 'representable/json'
+require 'serializers/entity/entity_id_serializer'
 
 module Wikibase
   module Serializers
     module Entity
-      # Serializer for Wikibase items
+      # Serializer for data values referring to entity IDs
       class EntityIdValueSerializer < Representable::Decorator
         include Representable::JSON
+        include Wikibase::DataModel::Entity
 
-        property :'entity-type'
-        property :'numeric-id'
-        property :id
+        property :value, decorator: EntityIdSerializer, class: EntityId
+        property :type
       end
     end
   end

@@ -3,10 +3,33 @@
 module Wikibase
   module DataModel
     module Statement
-      # Ordered and non-unique collection of Statement objects.
+      # Wraps a hash of Statement arrays keyed by entity id.
       class StatementList
-        def initialize(statements: [])
+        attr_accessor :statements
+
+        def initialize(statements: {})
           @statements = statements
+        end
+
+        def each(&)
+          @statements.each(&)
+        end
+
+        def replace(statements)
+          StatementList.new(statements: statements)
+        end
+
+        def ==(other)
+          other.is_a?(self.class) &&
+            @statements == other.statements
+        end
+
+        def eql?(other)
+          self == other
+        end
+
+        def empty?
+          @statements.empty?
         end
       end
     end

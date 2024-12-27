@@ -9,8 +9,8 @@ module Wikibase
       class DataValueSerializer < Representable::Decorator
         include Representable::JSON
 
-        property :type
         property :value
+        property :type
       end
     end
   end

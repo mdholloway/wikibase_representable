@@ -13,7 +13,7 @@ module Wikibase
       end
 
       def ==(other)
-        other.is_a?(SiteLink) &&
+        other.is_a?(self.class) &&
           @site_id == other.site_id &&
           @page_name == other.page_name &&
           @badges.size == other.badges.size &&

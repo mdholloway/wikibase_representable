@@ -9,7 +9,7 @@ module Wikibase
       class AliasGroupSerializer < Representable::Decorator
         include Representable::JSON
 
-        property :language
+        property :language_code, as: 'language'
         collection :aliases
       end
     end

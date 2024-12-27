@@ -9,7 +9,7 @@ module Wikibase
       class TermSerializer < Representable::Decorator
         include Representable::JSON
 
-        property :language
+        property :language_code, as: 'language'
         property :value
       end
     end

@@ -3,8 +3,10 @@
 module Wikibase
   module DataModel
     module Term
-      #  Hash of Term objects keyed by language code.
+      # Wraps a hash of Term objects keyed by language code.
       class TermList
+        attr_accessor :terms
+
         def initialize(terms: {})
           @terms = terms
         end
@@ -31,6 +33,23 @@ module Wikibase
 
         def text_for_language(language_code, value)
           term(Term.new(language_code, value))
+        end
+
+        def replace(terms)
+          TermList.new(terms: terms)
+        end
+
+        def each(&)
+          @terms.each(&)
+        end
+
+        def ==(other)
+          other.is_a?(self.class) &&
+            @terms == other.terms
+        end
+
+        def eql?(other)
+          self == other
         end
 
         def empty?
