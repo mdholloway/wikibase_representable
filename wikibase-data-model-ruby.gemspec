@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Michael Holloway']
   spec.email         = ['michael@mdholloway.org']
 
-  spec.summary       = 'Wikibase data model classes'
-  spec.description   = 'Library for working with Wikibase data fluently in Ruby'
+  spec.summary       = 'Work with Wikibase data fluently in Ruby'
+  spec.description   = 'Provides Wikibase data model classes and facilities for marshalling and unmarshalling Wikibase data objects to and from JSON.'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.3'
   spec.metadata['rubygems_mfa_required'] = 'true'
