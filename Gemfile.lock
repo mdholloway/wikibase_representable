@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wikibase-data-model (0.1.0)
+    wikibase_representable (0.1.0)
       multi_json (~> 1.15)
       representable (~> 3.2)
 
@@ -73,7 +73,7 @@ DEPENDENCIES
   rubocop (~> 1.69)
   rubocop-rake (~> 0.6)
   rubocop-rspec (~> 3.3)
-  wikibase-data-model!
+  wikibase_representable!
 
 BUNDLED WITH
    2.6.1

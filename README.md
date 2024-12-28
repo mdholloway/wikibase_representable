@@ -1,9 +1,9 @@
-# wikibase-data-model
+# wikibase_representable
 
 Provides Wikibase data model classes and support (by way of [representable](https://rubygems.org/gems/representable)) for serializing and deserializing Wikibase data objects to and from JSON.
 
 ## Install
-```zsh
+```sh
 bundle install
 ```
 
@@ -12,7 +12,7 @@ bundle install
 # Deserialize an object from JSON
 json = '{"type":"item","id":"Q42","labels":{"en":{"language":"en","value":"Douglas Adams"}}}'
 item = ItemRepresenter.new(Item.new).from_json(json)
-# => #<Wikibase::DataModel::Entity::Item:0x0000000...
+# => #<WikibaseRepresentable::Model::Entity::Item:0x0000000...
 
 # Serialize an object to JSON
 json = ItemRepresenter.new(item).to_json
@@ -20,6 +20,6 @@ json = ItemRepresenter.new(item).to_json
 ```
 
 ## Test (run RSpec and RuboCop)
-```zsh
+```sh
 rake
 ```

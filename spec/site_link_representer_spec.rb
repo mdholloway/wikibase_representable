@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-require 'wikibase/model/site_link'
-require 'wikibase/representers/site_link_representer'
+require 'wikibase_representable/model'
+require 'wikibase_representable/representers/site_link_representer'
 
-module Wikibase
+module WikibaseRepresentable
   module Representers
+    include WikibaseRepresentable::Model
+
     describe SiteLinkRepresenter do
       let(:site_link) do
-        Wikibase::Model::SiteLink.new(site_id: 'enwiki', page_name: 'Douglas_Adams', badges: ['Q17437798'])
+        SiteLink.new(site_id: 'enwiki', page_name: 'Douglas_Adams', badges: ['Q17437798'])
       end
       let(:representer) { described_class.new(site_link) }
       let(:json) { '{"siteid":"enwiki","pagename":"Douglas_Adams","badges":["Q17437798"]}' }
@@ -17,7 +19,7 @@ module Wikibase
       end
 
       it 'deserializes a sitelink object' do
-        expect(described_class.new(Wikibase::Model::SiteLink.new).from_json(json)).to eq(site_link)
+        expect(described_class.new(SiteLink.new).from_json(json)).to eq(site_link)
       end
     end
   end
