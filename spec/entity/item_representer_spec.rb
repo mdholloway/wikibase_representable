@@ -1,26 +1,30 @@
 # frozen_string_literal: true
 
 require 'wikibase/model/entity/item'
+require 'wikibase/model/term/term'
 require 'wikibase/model/term/term_list'
 require 'wikibase/representers/entity/item_representer'
 
 module Wikibase
   module Representers
     module Entity
-      include Wikibase::Model::Entity
-      include Wikibase::Model::Term
-
       describe ItemRepresenter do
-        let(:item) do
-          Item.new(id: 'Q42',
-                   labels: TermList.new(terms: {
-                                          'en' => Wikibase::Model::Term::Term.new(language_code: 'en',
-                                                                                  value: 'Douglas Adams')
-                                        }),
-                   descriptions: TermList.new(terms: {
+        let(:labels) do
+          Wikibase::Model::Term::TermList.new(terms: {
+                                                'en' => Wikibase::Model::Term::Term.new(language_code: 'en',
+                                                                                        value: 'Douglas Adams')
+                                              })
+        end
+        let(:descriptions) do
+          Wikibase::Model::Term::TermList.new(terms: {
                                                 'en' => Wikibase::Model::Term::Term.new(language_code: 'en',
                                                                                         value: 'writer')
-                                              }))
+                                              })
+        end
+        let(:item) do
+          Wikibase::Model::Entity::Item.new(id: 'Q42',
+                                            labels: labels,
+                                            descriptions: descriptions)
         end
         let(:representer) { described_class.new(item) }
         let(:json) do
@@ -33,7 +37,7 @@ module Wikibase
         end
 
         it 'deserializes an item object' do
-          expect(described_class.new(Item.new).from_json(json)).to eq(item)
+          expect(described_class.new(Wikibase::Model::Entity::Item.new).from_json(json)).to eq(item)
         end
       end
     end

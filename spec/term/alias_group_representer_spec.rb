@@ -6,10 +6,8 @@ require 'wikibase/representers/term/alias_group_representer'
 module Wikibase
   module Representers
     module Term
-      include Wikibase::Model::Term
-
       describe AliasGroupRepresenter do
-        let(:alias_group) { AliasGroup.new(language_code: 'en', aliases: ['Douglas Adams']) }
+        let(:alias_group) { Wikibase::Model::Term::AliasGroup.new(language_code: 'en', aliases: ['Douglas Adams']) }
         let(:representer) { described_class.new(alias_group) }
         let(:json) { '{"language":"en","aliases":["Douglas Adams"]}' }
 
@@ -18,7 +16,7 @@ module Wikibase
         end
 
         it 'deserializes an alias group object' do
-          expect(described_class.new(AliasGroup.new).from_json(json)).to eq(alias_group)
+          expect(described_class.new(Wikibase::Model::Term::AliasGroup.new).from_json(json)).to eq(alias_group)
         end
       end
     end

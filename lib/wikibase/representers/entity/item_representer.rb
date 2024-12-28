@@ -16,20 +16,19 @@ module Wikibase
       # Representer for Wikibase items
       class ItemRepresenter < Representable::Decorator
         include Representable::JSON
-        include Wikibase::Model
-        include Wikibase::Model::Statement
-        include Wikibase::Model::Term
-        include Wikibase::Representers
-        include Wikibase::Representers::Statement
-        include Wikibase::Representers::Term
 
         property :type
         property :id
-        property :labels, decorator: TermListRepresenter, class: TermList
-        property :descriptions, decorator: TermListRepresenter, class: TermList
-        property :alias_groups, as: 'aliases', decorator: AliasGroupListRepresenter, class: AliasGroupList
-        property :statements, as: 'claims', decorator: StatementListRepresenter, class: StatementList
-        property :site_links, as: 'sitelinks', decorator: SiteLinkListRepresenter, class: SiteLinkList
+        property :labels, decorator: Wikibase::Representers::Term::TermListRepresenter,
+                          class: Wikibase::Model::Term::TermList
+        property :descriptions, decorator: Wikibase::Representers::Term::TermListRepresenter,
+                                class: Wikibase::Model::Term::TermList
+        property :alias_groups, as: 'aliases', decorator: Wikibase::Representers::Term::AliasGroupListRepresenter,
+                                class: Wikibase::Model::Term::AliasGroupList
+        property :statements, as: 'claims', decorator: Wikibase::Representers::Statement::StatementListRepresenter,
+                              class: Wikibase::Model::Statement::StatementList
+        property :site_links, as: 'sitelinks', decorator: Wikibase::Representers::SiteLinkListRepresenter,
+                              class: Wikibase::Model::SiteLinkList
       end
     end
   end

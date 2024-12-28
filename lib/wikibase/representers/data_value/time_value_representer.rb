@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'wikibase/model/data_value/data_value'
+require 'wikibase/model/data_value/time'
 
 module Wikibase
   module Representers
@@ -8,9 +8,8 @@ module Wikibase
       # Represents a time value object
       class TimeValueRepresenter < Representable::Decorator
         include Representable::JSON
-        include Wikibase::Model::DataValue
 
-        property :value, decorator: TimeRepresenter, class: Time
+        property :value, decorator: TimeRepresenter, class: Wikibase::Model::DataValue::Time
         property :type
       end
     end

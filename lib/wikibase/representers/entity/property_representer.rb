@@ -14,18 +14,18 @@ module Wikibase
       # Representer for Wikibase properties
       class PropertyRepresenter < Representable::Decorator
         include Representable::JSON
-        include Wikibase::Model::Statement
-        include Wikibase::Model::Term
-        include Wikibase::Representers::Statement
-        include Wikibase::Representers::Term
 
         property :type
         property :data_type, as: 'datatype'
         property :id
-        property :labels, decorator: TermListRepresenter, class: TermList
-        property :descriptions, decorator: TermListRepresenter, class: TermList
-        property :alias_groups, as: 'aliases', decorator: AliasGroupListRepresenter, class: AliasGroupList
-        property :statements, as: 'claims', decorator: StatementListRepresenter, class: StatementList
+        property :labels, decorator: Wikibase::Representers::Term::TermListRepresenter,
+                          class: Wikibase::Model::Term::TermList
+        property :descriptions, decorator: Wikibase::Representers::Term::TermListRepresenter,
+                                class: Wikibase::Model::Term::TermList
+        property :alias_groups, as: 'aliases', decorator: Wikibase::Representers::Term::AliasGroupListRepresenter,
+                                class: Wikibase::Model::Term::AliasGroupList
+        property :statements, as: 'claims', decorator: Wikibase::Representers::Statement::StatementListRepresenter,
+                              class: Wikibase::Model::Statement::StatementList
       end
     end
   end

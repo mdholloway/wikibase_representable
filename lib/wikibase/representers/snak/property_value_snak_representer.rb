@@ -13,18 +13,22 @@ module Wikibase
       # Representer for property value snaks.
       class PropertyValueSnakRepresenter < Representable::Decorator
         include Representable::JSON
-        include Wikibase::Model::DataValue
-        include Wikibase::Model::Entity
-        include Wikibase::Representers::DataValue
-        include Wikibase::Representers::Entity
 
         property :type, as: 'snaktype'
         property :property_id, as: 'property'
         property :hash
         property :data_value, as: 'datavalue', decorator: lambda { |input:, **|
-          input.type == EntityIdValue::TYPE ? EntityIdValueRepresenter : DataValueRepresenter
+          if input.type == Wikibase::Model::Entity::EntityIdValue::TYPE
+            Wikibase::Representers::Entity::EntityIdValueRepresenter
+          else
+            Wikibase::Representers::DataValue::DataValueRepresenter
+          end
         }, class: lambda { |input:, **|
-          input['type'] == EntityIdValue::TYPE ? EntityIdValue : Wikibase::Model::DataValue::DataValue
+          if input['type'] == Wikibase::Model::Entity::EntityIdValue::TYPE
+            Wikibase::Model::Entity::EntityIdValue
+          else
+            Wikibase::Model::DataValue::DataValue
+          end
         }
       end
     end

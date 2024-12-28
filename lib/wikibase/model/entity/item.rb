@@ -11,17 +11,17 @@ module Wikibase
       # Represents a single Wikibase item.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Items
       class Item
-        include Wikibase::Model
-        include Wikibase::Model::Statement
-        include Wikibase::Model::Term
-
         ENTITY_TYPE = 'item'
 
         attr_accessor :type, :id, :labels, :descriptions, :alias_groups, :site_links, :statements
 
-        def initialize(type: ENTITY_TYPE, id: nil, labels: TermList.new,
-                       descriptions: TermList.new, alias_groups: AliasGroupList.new,
-                       site_links: SiteLinkList.new, statements: StatementList.new)
+        def initialize(type: ENTITY_TYPE,
+                       id: nil,
+                       labels: Wikibase::Model::Term::TermList.new,
+                       descriptions: Wikibase::Model::Term::TermList.new,
+                       alias_groups: Wikibase::Model::Term::AliasGroupList.new,
+                       site_links: Wikibase::Model::SiteLinkList.new,
+                       statements: Wikibase::Model::Statement::StatementList.new)
           @type = type
           @id = id
           @labels = labels

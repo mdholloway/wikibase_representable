@@ -6,12 +6,14 @@ require 'wikibase/representers/data_value/time_representer'
 module Wikibase
   module Representers
     module DataValue
-      include Wikibase::Model::DataValue
-
       describe TimeRepresenter do
         let(:time) do
-          Time.new(time: '+2023-02-03T00:00:00Z', time_zone: 0, before: 0, after: 0, precision: 11,
-                   calendar_model: 'http://www.wikidata.org/entity/Q1985727')
+          Wikibase::Model::DataValue::Time.new(time: '+2023-02-03T00:00:00Z',
+                                               time_zone: 0,
+                                               before: 0,
+                                               after: 0,
+                                               precision: 11,
+                                               calendar_model: 'http://www.wikidata.org/entity/Q1985727')
         end
         let(:representer) { described_class.new(time) }
         let(:json) do
@@ -23,7 +25,7 @@ module Wikibase
         end
 
         it 'deserializes a time data value object' do
-          expect(described_class.new(Time.new).from_json(json)).to eq(time)
+          expect(described_class.new(Wikibase::Model::DataValue::Time.new).from_json(json)).to eq(time)
         end
       end
     end

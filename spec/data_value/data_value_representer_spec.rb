@@ -6,11 +6,9 @@ require 'wikibase/representers/data_value/data_value_representer'
 module Wikibase
   module Representers
     module DataValue
-      include Wikibase::Model::DataValue
-
       describe DataValueRepresenter do
         describe 'given a numeric data value' do
-          let(:data_value) { DataValue::DataValue.new(type: 'number', value: 42) }
+          let(:data_value) { Wikibase::Model::DataValue::DataValue.new(type: 'number', value: 42) }
           let(:representer) { described_class.new(data_value) }
           let(:json) { '{"value":42,"type":"number"}' }
 
@@ -19,12 +17,12 @@ module Wikibase
           end
 
           it 'deserializes a data value object' do
-            expect(described_class.new(DataValue::DataValue.new).from_json(json)).to eq(data_value)
+            expect(described_class.new(Wikibase::Model::DataValue::DataValue.new).from_json(json)).to eq(data_value)
           end
         end
 
         describe 'given a string data value' do
-          let(:data_value) { DataValue::DataValue.new(type: 'string', value: 'Douglas Adams') }
+          let(:data_value) { Wikibase::Model::DataValue::DataValue.new(type: 'string', value: 'Douglas Adams') }
           let(:representer) { described_class.new(data_value) }
           let(:json) { '{"value":"Douglas Adams","type":"string"}' }
 
@@ -33,7 +31,7 @@ module Wikibase
           end
 
           it 'deserializes a data value object' do
-            expect(described_class.new(DataValue::DataValue.new).from_json(json)).to eq(data_value)
+            expect(described_class.new(Wikibase::Model::DataValue::DataValue.new).from_json(json)).to eq(data_value)
           end
         end
       end

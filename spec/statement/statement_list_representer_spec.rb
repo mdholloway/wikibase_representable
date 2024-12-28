@@ -9,13 +9,11 @@ require 'wikibase/representers/statement/statement_list_representer'
 module Wikibase
   module Representers
     module Statement
-      include Wikibase::Model::DataValue
-      include Wikibase::Model::Snak
-      include Wikibase::Model::Statement
-
       describe StatementListRepresenter do
         let(:data_value) { Wikibase::Model::DataValue::DataValue.new(type: 'string', value: 'foo') }
-        let(:main_snak) { PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value) }
+        let(:main_snak) do
+          Wikibase::Model::Snak::PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
+        end
         let(:statement) do
           Wikibase::Model::Statement::Statement.new(main_snak: main_snak,
                                                     guid: 'Q1$d82dd1f5-f0ca-44e9-9064-ef0f9cbc719c')

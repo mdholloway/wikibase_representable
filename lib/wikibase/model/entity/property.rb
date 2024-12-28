@@ -5,16 +5,17 @@ module Wikibase
     module Entity
       # Represents a single Wikibase property.
       class Property
-        include Wikibase::Model::Statement
-        include Wikibase::Model::Term
-
         ENTITY_TYPE = 'property'
 
         attr_accessor :type, :id, :data_type, :labels, :descriptions, :alias_groups, :statements
 
-        def initialize(type: ENTITY_TYPE, id: nil, data_type: nil, labels: TermList.new,
-                       descriptions: TermList.new, alias_groups: AliasGroupList.new,
-                       statements: StatementList.new)
+        def initialize(type: ENTITY_TYPE,
+                       id: nil,
+                       data_type: nil,
+                       labels: Wikibase::Model::Term::TermList.new,
+                       descriptions: Wikibase::Model::Term::TermList.new,
+                       alias_groups: Wikibase::Model::Term::AliasGroupList.new,
+                       statements: Wikibase::Model::Statement::StatementList.new)
           @type = type
           @data_type = data_type
           @id = id

@@ -8,8 +8,6 @@ module Wikibase
       # Class representing a Wikibase statement.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Statements
       class Statement
-        include Wikibase::Model::Snak
-
         TYPE = 'statement'
 
         RANK_PREFERRED = 'preferred'
@@ -18,7 +16,7 @@ module Wikibase
 
         attr_accessor :type, :main_snak, :qualifiers, :rank, :guid
 
-        def initialize(type: TYPE, main_snak: nil, qualifiers: SnakList.new, rank: RANK_NORMAL,
+        def initialize(type: TYPE, main_snak: nil, qualifiers: Wikibase::Model::Snak::SnakList.new, rank: RANK_NORMAL,
                        guid: nil)
           @type = type
           @main_snak = main_snak

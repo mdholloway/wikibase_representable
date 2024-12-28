@@ -10,9 +10,8 @@ module Wikibase
       # Representer for a hash of (language_code => alias_group)
       class AliasGroupListRepresenter < Representable::Decorator
         include Representable::JSON::Hash
-        include Wikibase::Model::Term
 
-        values decorator: AliasGroupRepresenter, class: AliasGroup
+        values decorator: AliasGroupRepresenter, class: Wikibase::Model::Term::AliasGroup
       end
     end
   end

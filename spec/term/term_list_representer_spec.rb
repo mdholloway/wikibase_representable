@@ -6,12 +6,10 @@ require 'wikibase/representers/term/term_list_representer'
 module Wikibase
   module Representers
     module Term
-      include Wikibase::Model::Term
-
       describe TermListRepresenter do
         let(:term_list) do
-          TermList.new(
-            terms: { 'en' => Term::Term.new(language_code: 'en', value: 'Douglas Adams') }
+          Wikibase::Model::Term::TermList.new(
+            terms: { 'en' => Wikibase::Model::Term::Term.new(language_code: 'en', value: 'Douglas Adams') }
           )
         end
         let(:representer) { described_class.new(term_list) }
@@ -22,7 +20,7 @@ module Wikibase
         end
 
         it 'deserializes a term list object' do
-          expect(described_class.new(TermList.new).from_json(json)).to eq(term_list)
+          expect(described_class.new(Wikibase::Model::Term::TermList.new).from_json(json)).to eq(term_list)
         end
       end
     end
