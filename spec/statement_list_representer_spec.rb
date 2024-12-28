@@ -21,8 +21,8 @@ module WikibaseRepresentable
       end
       let(:representer) { described_class.new(statement_list) }
       let(:json) do
-        '{"P1":[{"mainsnak":{"snaktype":"value","property":"P1","hash":"abcdef",' \
-          '"datavalue":{"value":"foo","type":"string"}},"qualifiers":{},"type":"statement",' \
+        '{"P1":[{"type":"statement","mainsnak":{"snaktype":"value","property":"P1",' \
+          '"hash":"abcdef","datavalue":{"value":"foo","type":"string"}},"qualifiers":{},' \
           '"id":"Q1$d82dd1f5-f0ca-44e9-9064-ef0f9cbc719c","rank":"normal"}]}'
       end
 

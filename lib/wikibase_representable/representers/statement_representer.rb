@@ -12,12 +12,14 @@ module WikibaseRepresentable
       include Representable::JSON
       include WikibaseRepresentable::Model
 
+      property :type
       property :main_snak, as: 'mainsnak',
                            decorator: PropertyValueSnakRepresenter,
                            class: PropertyValueSnak
       property :qualifiers, decorator: SnakListRepresenter,
                             class: SnakList
-      property :type
+      property :qualifiers_order, as: 'qualifiers-order',
+                                  render_nil: false
       property :guid, as: 'id'
       property :rank
 
