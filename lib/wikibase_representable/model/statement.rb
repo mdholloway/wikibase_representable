@@ -35,6 +35,10 @@ module WikibaseRepresentable
           other.rank == rank &&
           other.guid == guid
       end
+
+      def eql?(other)
+        self == other
+      end
     end
   end
 end

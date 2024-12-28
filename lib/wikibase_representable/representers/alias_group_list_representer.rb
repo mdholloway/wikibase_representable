@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 require 'representable/json/hash'
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/alias_group_representer'
+require 'wikibase_representable/representers/term_representer'
 
 module WikibaseRepresentable
   module Representers
-    # Representer for a hash of (language_code => alias_group)
+    # Representer for a hash of language_codes => term arrays
     class AliasGroupListRepresenter < Representable::Decorator
       include Representable::JSON::Hash
-      include WikibaseRepresentable::Model
 
-      values decorator: AliasGroupRepresenter, class: AliasGroup
+      values decorator: TermRepresenter.for_collection, instance: []
     end
   end
 end
