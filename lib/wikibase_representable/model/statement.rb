@@ -29,14 +29,18 @@ module WikibaseRepresentable
         @guid = guid
       end
 
+      def property_id
+        @main_snak.property_id
+      end
+
       def ==(other)
         other.is_a?(self.class) &&
-          other.type == type &&
-          other.main_snak == main_snak &&
-          other.qualifiers == qualifiers &&
-          other.qualifiers_order == qualifiers_order &&
-          other.rank == rank &&
-          other.guid == guid
+          other.type == @type &&
+          other.main_snak == @main_snak &&
+          other.qualifiers == @qualifiers &&
+          other.qualifiers_order == @qualifiers_order &&
+          other.rank == @rank &&
+          other.guid == @guid
       end
 
       def eql?(other)
