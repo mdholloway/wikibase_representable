@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Work with Wikibase data fluently in Ruby'
   spec.description   = 'Provides Wikibase data model classes and support for serializing and deserializing ' \
-                       'Wikibase data objects to and from JSON.'
+                       'Wikibase entities to and from JSON.'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.3'
   spec.metadata['rubygems_mfa_required'] = 'true'
