@@ -13,20 +13,20 @@ module WikibaseRepresentable
       RANK_NORMAL = 'normal'
       RANK_DEPRECATED = 'deprecated'
 
-      attr_accessor :type, :main_snak, :qualifiers, :qualifiers_order, :guid, :rank
+      attr_accessor :main_snak, :qualifiers, :qualifiers_order, :type, :guid, :rank
 
       def initialize(type: TYPE,
                      main_snak: nil,
-                     qualifiers: SnakList.new,
+                     qualifiers: nil,
                      qualifiers_order: nil,
                      guid: nil,
                      rank: RANK_NORMAL)
-        @type = type
         @main_snak = main_snak
         @qualifiers = qualifiers
         @qualifiers_order = qualifiers_order
-        @rank = rank
+        @type = type
         @guid = guid
+        @rank = rank
       end
 
       def property_id
