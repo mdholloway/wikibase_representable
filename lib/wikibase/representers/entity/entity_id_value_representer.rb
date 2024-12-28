@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'model/entity/entity_id'
 require 'representable/json'
-require 'representers/entity/entity_id_representer'
+require 'wikibase/model/entity/entity_id'
+require 'wikibase/representers/entity/entity_id_representer'
 
 module Wikibase
   module Representers

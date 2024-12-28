@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'model/snak/property_value_snak'
-require 'model/snak/snak_list'
 require 'representable/json'
-require 'representers/snak/property_value_snak_representer'
-require 'representers/snak/snak_list_representer'
+require 'wikibase/model/snak/property_value_snak'
+require 'wikibase/model/snak/snak_list'
+require 'wikibase/representers/snak/property_value_snak_representer'
+require 'wikibase/representers/snak/snak_list_representer'
 
 module Wikibase
   module Representers

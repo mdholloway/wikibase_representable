@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'model/site_link_list'
-require 'model/statement/statement_list'
-require 'model/term/alias_group_list'
-require 'model/term/term_list'
 require 'representable/json'
-require 'representers/site_link_list_representer'
-require 'representers/statement/statement_list_representer'
-require 'representers/term/alias_group_list_representer'
-require 'representers/term/term_list_representer'
+require 'wikibase/model/site_link_list'
+require 'wikibase/model/statement/statement_list'
+require 'wikibase/model/term/alias_group_list'
+require 'wikibase/model/term/term_list'
+require 'wikibase/representers/site_link_list_representer'
+require 'wikibase/representers/statement/statement_list_representer'
+require 'wikibase/representers/term/alias_group_list_representer'
+require 'wikibase/representers/term/term_list_representer'
 
 module Wikibase
   module Representers

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'model/snak/snak_list'
+require 'wikibase/model/snak/snak_list'
 
 module Wikibase
   module DataModel

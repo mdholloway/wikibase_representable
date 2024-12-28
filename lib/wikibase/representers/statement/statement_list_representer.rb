@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'model/statement/statement'
 require 'representable/json/hash'
-require 'representers/statement/statement_representer'
+require 'wikibase/model/statement/statement'
+require 'wikibase/representers/statement/statement_representer'
 
 module Wikibase
   module Representers

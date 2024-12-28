@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'model/entity/property'
-require 'model/term/term_list'
-require 'representers/entity/property_representer'
+require 'wikibase/model/entity/property'
+require 'wikibase/model/term/term_list'
+require 'wikibase/representers/entity/property_representer'
 
 module Wikibase
   module Representers

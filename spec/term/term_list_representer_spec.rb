@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'model/term/term_list'
-require 'representers/term/term_list_representer'
+require 'wikibase/model/term/term_list'
+require 'wikibase/representers/term/term_list_representer'
 
 module Wikibase
   module Representers

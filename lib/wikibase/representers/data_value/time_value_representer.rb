@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'model/data_value/data_value'
+require 'wikibase/model/data_value/data_value'
 
 module Wikibase
   module Representers

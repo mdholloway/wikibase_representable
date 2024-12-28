@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'model/data_value/time'
-require 'representers/data_value/time_representer'
+require 'wikibase/model/data_value/time'
+require 'wikibase/representers/data_value/time_representer'
 
 module Wikibase
   module Representers

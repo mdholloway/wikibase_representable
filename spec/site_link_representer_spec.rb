@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'model/site_link'
-require 'representers/site_link_representer'
+require 'wikibase/model/site_link'
+require 'wikibase/representers/site_link_representer'
 
 module Wikibase
   module Representers

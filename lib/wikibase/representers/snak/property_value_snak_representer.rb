@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'model/data_value/data_value'
-require 'model/entity/entity_id_value'
 require 'representable/json'
-require 'representers/data_value/data_value_representer'
-require 'representers/entity/entity_id_representer'
-require 'representers/entity/entity_id_value_representer'
+require 'wikibase/model/data_value/data_value'
+require 'wikibase/model/entity/entity_id_value'
+require 'wikibase/representers/data_value/data_value_representer'
+require 'wikibase/representers/entity/entity_id_representer'
+require 'wikibase/representers/entity/entity_id_value_representer'
 
 module Wikibase
   module Representers

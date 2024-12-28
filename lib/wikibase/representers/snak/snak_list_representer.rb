@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'model/snak/property_value_snak'
 require 'representable/json/hash'
-require 'representers/snak/property_value_snak_representer'
+require 'wikibase/model/snak/property_value_snak'
+require 'wikibase/representers/snak/property_value_snak_representer'
 
 module Wikibase
   module Representers

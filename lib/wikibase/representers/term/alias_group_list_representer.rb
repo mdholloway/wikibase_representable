@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'model/term/alias_group'
 require 'representable/json/hash'
-require 'representers/term/alias_group_representer'
+require 'wikibase/model/term/alias_group'
+require 'wikibase/representers/term/alias_group_representer'
 
 module Wikibase
   module Representers

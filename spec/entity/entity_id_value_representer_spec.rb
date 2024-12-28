@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'model/entity/entity_id'
-require 'model/entity/entity_id_value'
-require 'representers/entity/entity_id_value_representer'
+require 'wikibase/model/entity/entity_id'
+require 'wikibase/model/entity/entity_id_value'
+require 'wikibase/representers/entity/entity_id_value_representer'
 
 module Wikibase
   module Representers

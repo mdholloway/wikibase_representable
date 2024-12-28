@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'model/data_value/data_value'
-require 'model/snak/property_value_snak'
-require 'model/statement/statement'
-require 'representers/statement/statement_representer'
+require 'wikibase/model/data_value/data_value'
+require 'wikibase/model/snak/property_value_snak'
+require 'wikibase/model/statement/statement'
+require 'wikibase/representers/statement/statement_representer'
 
 module Wikibase
   module Representers

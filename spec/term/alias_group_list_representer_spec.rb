@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'model/term/alias_group_list'
-require 'representers/term/alias_group_list_representer'
+require 'wikibase/model/term/alias_group_list'
+require 'wikibase/representers/term/alias_group_list_representer'
 
 module Wikibase
   module Representers

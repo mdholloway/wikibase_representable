@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'model/data_value/data_value'
-require 'model/entity/entity_id'
-require 'model/entity/entity_id_value'
-require 'model/snak/property_value_snak'
+require 'wikibase/model/data_value/data_value'
+require 'wikibase/model/entity/entity_id'
+require 'wikibase/model/entity/entity_id_value'
+require 'wikibase/model/snak/property_value_snak'
 
 module Wikibase
   module Representers
