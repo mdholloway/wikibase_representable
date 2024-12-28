@@ -29,7 +29,7 @@ module Wikibase
         property :descriptions, decorator: TermListRepresenter, class: TermList
         property :alias_groups, as: 'aliases', decorator: AliasGroupListRepresenter, class: AliasGroupList
         property :statements, as: 'claims', decorator: StatementListRepresenter, class: StatementList
-        property :sitelinks, decorator: SiteLinkListRepresenter, class: SiteLinkList
+        property :site_links, as: 'sitelinks', decorator: SiteLinkListRepresenter, class: SiteLinkList
       end
     end
   end
