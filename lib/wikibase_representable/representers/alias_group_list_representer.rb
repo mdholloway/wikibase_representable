@@ -9,7 +9,7 @@ module WikibaseRepresentable
     class AliasGroupListRepresenter < Representable::Decorator
       include Representable::JSON::Hash
 
-      values decorator: TermRepresenter.for_collection, instance: []
+      values decorator: TermRepresenter.for_collection, instance: ->(_fragment) { [] }
     end
   end
 end

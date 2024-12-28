@@ -17,9 +17,9 @@ module WikibaseRepresentable
       property :property_id, as: 'property'
       property :hash
       property :data_value, as: 'datavalue', decorator: lambda { |input:, **|
-        if input.type == EntityIdValue::TYPE
+        if input.is_a? EntityIdValue
           EntityIdValueRepresenter
-        elsif input.type == TimeValue::TYPE
+        elsif input.is_a? TimeValue
           TimeValueRepresenter
         else
           DataValueRepresenter
@@ -33,6 +33,8 @@ module WikibaseRepresentable
           DataValue
         end
       }
+
+      collection_representer class: PropertyValueSnak
     end
   end
 end

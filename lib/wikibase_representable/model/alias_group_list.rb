@@ -2,7 +2,7 @@
 
 module WikibaseRepresentable
   module Model
-    # Wraps a hash of AliasGroup objects keyed by language code.
+    # Wraps a hash of Term arrays keyed by language code.
     class AliasGroupList
       attr_accessor :alias_groups
 

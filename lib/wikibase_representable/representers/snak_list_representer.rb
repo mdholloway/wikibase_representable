@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'representable/json/hash'
-require 'wikibase_representable/model'
 require 'wikibase_representable/representers/property_value_snak_representer'
 
 module WikibaseRepresentable
@@ -9,9 +8,8 @@ module WikibaseRepresentable
     # Representer for a list of property value snaks.
     class SnakListRepresenter < Representable::Decorator
       include Representable::JSON::Hash
-      include WikibaseRepresentable::Model
 
-      values decorator: PropertyValueSnakRepresenter, class: PropertyValueSnak
+      values decorator: PropertyValueSnakRepresenter.for_collection, instance: ->(_fragment) { [] }
     end
   end
 end

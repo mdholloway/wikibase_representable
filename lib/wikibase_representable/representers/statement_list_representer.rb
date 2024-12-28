@@ -9,7 +9,7 @@ module WikibaseRepresentable
     class StatementListRepresenter < Representable::Decorator
       include Representable::JSON::Hash
 
-      values decorator: StatementRepresenter.for_collection, instance: []
+      values decorator: StatementRepresenter.for_collection, instance: ->(_fragment) { [] }
     end
   end
 end
