@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model/alias_group'
-
 module WikibaseRepresentable
   module Model
     # Wraps a hash of AliasGroup objects keyed by language code.
@@ -30,10 +28,6 @@ module WikibaseRepresentable
 
       def group_for_language?(language_code)
         @alias_groups.key?(language_code)
-      end
-
-      def aliases_for_language(language_code, aliases)
-        alias_groups(AliasGroup.new(language_code: language_code, aliases: aliases))
       end
 
       def replace(alias_groups)

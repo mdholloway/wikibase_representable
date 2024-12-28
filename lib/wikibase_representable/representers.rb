@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'wikibase_representable/representers/alias_group_list_representer'
-require 'wikibase_representable/representers/alias_group_representer'
 require 'wikibase_representable/representers/data_value_representer'
 require 'wikibase_representable/representers/entity_id_value_representer'
 require 'wikibase_representable/representers/entity_id_representer'
