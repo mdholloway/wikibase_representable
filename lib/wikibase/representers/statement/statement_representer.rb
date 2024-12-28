@@ -12,7 +12,7 @@ module Wikibase
       # Representer for a Wikibase statement (aka claim)
       class StatementRepresenter < Representable::Decorator
         include Representable::JSON
-        include Wikibase::DataModel::Snak
+        include Wikibase::Model::Snak
         include Wikibase::Representers::Snak
 
         property :main_snak, as: 'mainsnak', decorator: PropertyValueSnakRepresenter, class: PropertyValueSnak
@@ -21,7 +21,7 @@ module Wikibase
         property :guid, as: 'id'
         property :rank
 
-        collection_representer class: Wikibase::DataModel::Statement::Statement
+        collection_representer class: Wikibase::Model::Statement::Statement
       end
     end
   end

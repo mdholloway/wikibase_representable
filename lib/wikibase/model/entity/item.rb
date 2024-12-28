@@ -6,14 +6,14 @@ require 'wikibase/model/term/term_list'
 require 'wikibase/model/statement/statement_list'
 
 module Wikibase
-  module DataModel
+  module Model
     module Entity
       # Represents a single Wikibase item.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Items
       class Item
-        include Wikibase::DataModel
-        include Wikibase::DataModel::Statement
-        include Wikibase::DataModel::Term
+        include Wikibase::Model
+        include Wikibase::Model::Statement
+        include Wikibase::Model::Term
 
         ENTITY_TYPE = 'item'
 

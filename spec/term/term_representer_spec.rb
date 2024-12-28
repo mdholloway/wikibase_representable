@@ -6,7 +6,7 @@ require 'wikibase/representers/term/term_representer'
 module Wikibase
   module Representers
     module Term
-      include Wikibase::DataModel::Term
+      include Wikibase::Model::Term
 
       describe TermRepresenter do
         let(:term) { Term::Term.new(language_code: 'en', value: 'Douglas Adams') }

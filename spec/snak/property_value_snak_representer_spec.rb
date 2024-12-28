@@ -9,13 +9,13 @@ require 'wikibase/representers/snak/property_value_snak_representer'
 module Wikibase
   module Representers
     module Snak
-      include Wikibase::DataModel::DataValue
-      include Wikibase::DataModel::Entity
-      include Wikibase::DataModel::Snak
+      include Wikibase::Model::DataValue
+      include Wikibase::Model::Entity
+      include Wikibase::Model::Snak
 
       describe PropertyValueSnakRepresenter do
         describe 'given a numeric data value' do
-          let(:data_value) { Wikibase::DataModel::DataValue::DataValue.new(type: 'number', value: 42) }
+          let(:data_value) { Wikibase::Model::DataValue::DataValue.new(type: 'number', value: 42) }
           let(:snak) { PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value) }
           let(:representer) { described_class.new(snak) }
           let(:json) { '{"snaktype":"value","property":"P1","hash":"abcdef","datavalue":{"value":42,"type":"number"}}' }
@@ -30,7 +30,7 @@ module Wikibase
         end
 
         describe 'given a string data value' do
-          let(:data_value) { Wikibase::DataModel::DataValue::DataValue.new(type: 'string', value: 'Douglas Adams') }
+          let(:data_value) { Wikibase::Model::DataValue::DataValue.new(type: 'string', value: 'Douglas Adams') }
           let(:snak) { PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value) }
           let(:representer) { described_class.new(snak) }
           let(:json) do

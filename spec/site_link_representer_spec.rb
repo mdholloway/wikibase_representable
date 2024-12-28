@@ -5,7 +5,7 @@ require 'wikibase/representers/site_link_representer'
 
 module Wikibase
   module Representers
-    include Wikibase::DataModel
+    include Wikibase::Model
 
     describe SiteLinkRepresenter do
       let(:site_link) { SiteLink.new(site_id: 'enwiki', page_name: 'Douglas_Adams', badges: ['Q17437798']) }

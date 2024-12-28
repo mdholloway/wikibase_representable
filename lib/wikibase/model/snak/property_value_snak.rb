@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     module Snak
       # Class representing a property value snak.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#PropertyValueSnak

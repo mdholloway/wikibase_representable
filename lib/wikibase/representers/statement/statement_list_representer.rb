@@ -10,7 +10,7 @@ module Wikibase
       # Representer for a hash of property IDs => statement arrays.
       class StatementListRepresenter < Representable::Decorator
         include Representable::JSON::Hash
-        include Wikibase::DataModel::Statement
+        include Wikibase::Model::Statement
 
         values decorator: StatementRepresenter.for_collection, instance: []
       end

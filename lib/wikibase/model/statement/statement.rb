@@ -3,12 +3,12 @@
 require 'wikibase/model/snak/snak_list'
 
 module Wikibase
-  module DataModel
+  module Model
     module Statement
       # Class representing a Wikibase statement.
       # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Statements
       class Statement
-        include Wikibase::DataModel::Snak
+        include Wikibase::Model::Snak
 
         TYPE = 'statement'
 

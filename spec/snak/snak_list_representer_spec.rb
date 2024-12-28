@@ -9,9 +9,9 @@ module Wikibase
   module Representers
     module Snak
       describe SnakListRepresenter do
-        let(:number_value) { Wikibase::DataModel::DataValue::DataValue.new(type: 'number', value: 42) }
+        let(:number_value) { Wikibase::Model::DataValue::DataValue.new(type: 'number', value: 42) }
         let(:number_value_snak) { PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: number_value) }
-        let(:string_value) { Wikibase::DataModel::DataValue::DataValue.new(type: 'string', value: 'Douglas Adams') }
+        let(:string_value) { Wikibase::Model::DataValue::DataValue.new(type: 'string', value: 'Douglas Adams') }
         let(:string_value_snak) { PropertyValueSnak.new(property_id: 'P2', hash: 'abcdef', data_value: string_value) }
         let(:entity_id) { EntityId.new(id: 'Q42', numeric_id: 42, entity_type: 'item') }
         let(:entity_id_value) { EntityIdValue.new(value: entity_id) }

@@ -3,10 +3,10 @@
 require 'wikibase/model/data_value/data_value'
 
 module Wikibase
-  module DataModel
+  module Model
     module Entity
       # Data value representing an entity ID data value
-      class EntityIdValue < Wikibase::DataModel::DataValue::DataValue
+      class EntityIdValue < Wikibase::Model::DataValue::DataValue
         TYPE = 'wikibase-entityid'
 
         def initialize(value: nil)

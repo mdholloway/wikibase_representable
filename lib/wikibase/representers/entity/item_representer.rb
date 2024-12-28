@@ -16,9 +16,9 @@ module Wikibase
       # Representer for Wikibase items
       class ItemRepresenter < Representable::Decorator
         include Representable::JSON
-        include Wikibase::DataModel
-        include Wikibase::DataModel::Statement
-        include Wikibase::DataModel::Term
+        include Wikibase::Model
+        include Wikibase::Model::Statement
+        include Wikibase::Model::Term
         include Wikibase::Representers
         include Wikibase::Representers::Statement
         include Wikibase::Representers::Term

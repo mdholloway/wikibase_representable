@@ -6,7 +6,7 @@ require 'wikibase/representers/data_value/time_representer'
 module Wikibase
   module Representers
     module DataValue
-      include Wikibase::DataModel::DataValue
+      include Wikibase::Model::DataValue
 
       describe TimeRepresenter do
         let(:time) do

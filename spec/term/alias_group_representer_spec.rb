@@ -6,7 +6,7 @@ require 'wikibase/representers/term/alias_group_representer'
 module Wikibase
   module Representers
     module Term
-      include Wikibase::DataModel::Term
+      include Wikibase::Model::Term
 
       describe AliasGroupRepresenter do
         let(:alias_group) { AliasGroup.new(language_code: 'en', aliases: ['Douglas Adams']) }

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     module Statement
       # Wraps a hash of Statement arrays keyed by entity id.
       class StatementList

@@ -14,8 +14,8 @@ module Wikibase
       # Representer for Wikibase properties
       class PropertyRepresenter < Representable::Decorator
         include Representable::JSON
-        include Wikibase::DataModel::Statement
-        include Wikibase::DataModel::Term
+        include Wikibase::Model::Statement
+        include Wikibase::Model::Term
         include Wikibase::Representers::Statement
         include Wikibase::Representers::Term
 

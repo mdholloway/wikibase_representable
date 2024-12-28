@@ -10,9 +10,9 @@ module Wikibase
       # Representer for term lists
       class TermListRepresenter < Representable::Decorator
         include Representable::JSON::Hash
-        include Wikibase::DataModel::Term
+        include Wikibase::Model::Term
 
-        values decorator: TermRepresenter, class: Wikibase::DataModel::Term::Term
+        values decorator: TermRepresenter, class: Wikibase::Model::Term::Term
       end
     end
   end

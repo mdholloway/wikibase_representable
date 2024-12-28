@@ -3,7 +3,7 @@
 require 'wikibase/model/data_value/data_value'
 
 module Wikibase
-  module DataModel
+  module Model
     module DataValue
       # Data value object that represents a time value.
       class TimeValue < DataValue

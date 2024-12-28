@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     # Hash of SiteLink objects keyed by site id.
     class SiteLinkList
       attr_accessor :site_links

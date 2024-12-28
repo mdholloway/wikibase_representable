@@ -10,7 +10,7 @@ module Wikibase
       # Representer for a list of property value snaks.
       class SnakListRepresenter < Representable::Decorator
         include Representable::JSON::Hash
-        include Wikibase::DataModel::Snak
+        include Wikibase::Model::Snak
 
         values decorator: PropertyValueSnakRepresenter, class: PropertyValueSnak
       end

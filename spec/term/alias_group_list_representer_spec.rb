@@ -6,7 +6,7 @@ require 'wikibase/representers/term/alias_group_list_representer'
 module Wikibase
   module Representers
     module Term
-      include Wikibase::DataModel::Term
+      include Wikibase::Model::Term
 
       describe AliasGroupListRepresenter do
         let(:alias_group_list) do

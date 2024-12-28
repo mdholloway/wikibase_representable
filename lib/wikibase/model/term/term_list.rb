@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     module Term
       # Wraps a hash of Term objects keyed by language code.
       class TermList

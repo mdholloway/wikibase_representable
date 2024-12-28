@@ -6,7 +6,7 @@ require 'wikibase/representers/entity/entity_id_representer'
 module Wikibase
   module Representers
     module Entity
-      include Wikibase::DataModel::Entity
+      include Wikibase::Model::Entity
 
       describe EntityIdRepresenter do
         let(:entity_id) { EntityId.new(id: 'Q42', entity_type: 'item', numeric_id: 42) }

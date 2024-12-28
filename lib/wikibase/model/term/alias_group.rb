@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     module Term
       # Object representing a list of aliases of an entity in a given language.
       class AliasGroup

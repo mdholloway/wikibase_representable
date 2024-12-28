@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     module Entity
       # Data value representing an entity ID data value
       class EntityId

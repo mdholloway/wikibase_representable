@@ -6,7 +6,7 @@ require 'wikibase/representers/data_value/data_value_representer'
 module Wikibase
   module Representers
     module DataValue
-      include Wikibase::DataModel::DataValue
+      include Wikibase::Model::DataValue
 
       describe DataValueRepresenter do
         describe 'given a numeric data value' do

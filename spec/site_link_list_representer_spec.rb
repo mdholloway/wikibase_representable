@@ -5,7 +5,7 @@ require 'wikibase/representers/site_link_list_representer'
 
 module Wikibase
   module Representers
-    include Wikibase::DataModel
+    include Wikibase::Model
 
     describe SiteLinkListRepresenter do
       let(:site_link_list) do

@@ -6,7 +6,7 @@ require 'wikibase/representers/term/term_list_representer'
 module Wikibase
   module Representers
     module Term
-      include Wikibase::DataModel::Term
+      include Wikibase::Model::Term
 
       describe TermListRepresenter do
         let(:term_list) do

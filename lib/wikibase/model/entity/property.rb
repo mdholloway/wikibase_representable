@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     module Entity
       # Represents a single Wikibase property.
       class Property
-        include Wikibase::DataModel::Statement
-        include Wikibase::DataModel::Term
+        include Wikibase::Model::Statement
+        include Wikibase::Model::Term
 
         ENTITY_TYPE = 'property'
 

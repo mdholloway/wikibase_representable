@@ -7,19 +7,19 @@ require 'wikibase/representers/entity/item_representer'
 module Wikibase
   module Representers
     module Entity
-      include Wikibase::DataModel::Entity
-      include Wikibase::DataModel::Term
+      include Wikibase::Model::Entity
+      include Wikibase::Model::Term
 
       describe ItemRepresenter do
         let(:item) do
           Item.new(id: 'Q42',
                    labels: TermList.new(terms: {
-                                          'en' => Wikibase::DataModel::Term::Term.new(language_code: 'en',
-                                                                                      value: 'Douglas Adams')
+                                          'en' => Wikibase::Model::Term::Term.new(language_code: 'en',
+                                                                                  value: 'Douglas Adams')
                                         }),
                    descriptions: TermList.new(terms: {
-                                                'en' => Wikibase::DataModel::Term::Term.new(language_code: 'en',
-                                                                                            value: 'writer')
+                                                'en' => Wikibase::Model::Term::Term.new(language_code: 'en',
+                                                                                        value: 'writer')
                                               }))
         end
         let(:representer) { described_class.new(item) }

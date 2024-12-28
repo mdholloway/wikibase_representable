@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wikibase
-  module DataModel
+  module Model
     module DataValue
       # Object that represents a single data value.
       class DataValue
