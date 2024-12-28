@@ -10,6 +10,10 @@ module WikibaseRepresentable
         @statements = statements
       end
 
+      def get_by_property_id(property_id)
+        @statements.fetch(property_id)
+      end
+
       def each(&)
         @statements.each(&)
       end
