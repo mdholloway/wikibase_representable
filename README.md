@@ -21,5 +21,5 @@ json = ItemRepresenter.new(item).to_json
 
 ## Test (run RSpec and RuboCop)
 ```sh
-rake
+bundle exec rake
 ```
