@@ -12,7 +12,7 @@ bundle install
 # Deserialize an object from JSON
 json = '{"type":"item","id":"Q42","labels":{"en":{"language":"en","value":"Douglas Adams"}}}'
 item = ItemRepresenter.new(Item.new).from_json(json)
-# => #<WikibaseRepresentable::Model::Entity::Item:0x0000000...
+# => #<WikibaseRepresentable::Model::Item:0x0000000...
 
 # Serialize an object to JSON
 json = ItemRepresenter.new(item).to_json
