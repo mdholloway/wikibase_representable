@@ -31,6 +31,14 @@ module WikibaseRepresentable
         @statements = statements
       end
 
+      def get_statements_by_property_id(property_id)
+        @statements.get_by_property_id(property_id)
+      end
+
+      def get_claims_by_property_id(property_id)
+        @statements.get_by_property_id(property_id)
+      end
+
       def set_label(language_code, value)
         @labels.term(Term.new(language_code, value))
       end
