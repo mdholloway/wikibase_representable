@@ -11,7 +11,7 @@ module WikibaseRepresentable
       end
 
       def get_by_language(language_code)
-        @alias_groups.fetch(language_code)
+        @alias_groups[language_code]
       end
 
       def alias_group(alias_group)

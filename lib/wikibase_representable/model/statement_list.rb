@@ -11,7 +11,7 @@ module WikibaseRepresentable
       end
 
       def get_by_property_id(property_id)
-        @statements.fetch(property_id)
+        @statements[property_id]
       end
 
       def each(&)

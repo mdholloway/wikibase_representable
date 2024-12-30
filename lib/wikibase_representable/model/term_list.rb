@@ -13,7 +13,7 @@ module WikibaseRepresentable
       end
 
       def get_by_language(language_code)
-        @terms.fetch(language_code)
+        @terms[language_code]
       end
 
       def term(term)

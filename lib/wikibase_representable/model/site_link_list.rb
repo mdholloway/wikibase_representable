@@ -11,7 +11,7 @@ module WikibaseRepresentable
       end
 
       def get_by_site_id(site_id)
-        @site_links.fetch(site_id)
+        @site_links[site_id]
       end
 
       def link_with_site_id?(site_id)
