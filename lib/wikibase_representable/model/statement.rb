@@ -29,6 +29,10 @@ module WikibaseRepresentable
         @rank = rank
       end
 
+      def get_qualifiers_by_property_id(property_id)
+        qualifiers[property_id]
+      end
+
       def property_id
         @main_snak.property_id
       end
