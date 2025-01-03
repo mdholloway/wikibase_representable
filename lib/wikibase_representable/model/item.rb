@@ -31,6 +31,10 @@ module WikibaseRepresentable
         @statements = statements
       end
 
+      def get_label_by_language(language_code)
+        @labels.get_by_language(language_code)
+      end
+
       def get_statements_by_property_id(property_id)
         @statements.get_by_property_id(property_id)
       end
