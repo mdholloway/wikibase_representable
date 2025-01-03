@@ -10,11 +10,11 @@ module WikibaseRepresentable
         @snaks = snaks
       end
 
-      def snaks_for_property_id(property_id)
+      def snaks_by_property_id(property_id)
         @snaks[property_id]
       end
 
-      def snaks_for_property_id?(property_id)
+      def snaks_by_property_id?(property_id)
         @snaks.key?(property_id)
       end
 

@@ -35,16 +35,16 @@ module WikibaseRepresentable
         @labels.value_for_language(language_code)
       end
 
-      def statements_for_property_id(property_id)
-        @statements.statements_for_property_id(property_id)
+      def statements_by_property_id(property_id)
+        @statements.statements_by_property_id(property_id)
       end
 
-      def statements_for_property_id?(property_id)
-        @statements.statements_for_property_id?(property_id)
+      def statements_by_property_id?(property_id)
+        @statements.statements_by_property_id?(property_id)
       end
 
-      def statement_for_property_id(property_id)
-        @statements.statements_for_property_id(property_id)&.first
+      def statement_by_property_id(property_id)
+        @statements.statements_by_property_id(property_id)&.first
       end
 
       def site_link(site_id)
@@ -75,9 +75,9 @@ module WikibaseRepresentable
       end
 
       alias claims statements
-      alias claims_for_property_id statements_for_property_id
-      alias claims_for_property_id? statements_for_property_id?
-      alias claim_for_property_id statement_for_property_id
+      alias claims_by_property_id statements_by_property_id
+      alias claims_by_property_id? statements_by_property_id?
+      alias claim_by_property_id statement_by_property_id
     end
   end
 end
