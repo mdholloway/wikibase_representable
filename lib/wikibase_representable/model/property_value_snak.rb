@@ -5,6 +5,8 @@ module WikibaseRepresentable
     # Class representing a property value snak.
     # See https://www.mediawiki.org/wiki/Wikibase/DataModel#PropertyValueSnak
     class PropertyValueSnak
+      include SnakDataValueHelper
+
       SNAK_TYPE = 'value'
 
       attr_accessor :type, :property_id, :data_value, :hash

@@ -7,6 +7,8 @@ module WikibaseRepresentable
     # Class representing a Wikibase statement.
     # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Statements
     class Statement
+      include StatementDataValueHelper
+
       TYPE = 'statement'
 
       RANK_PREFERRED = 'preferred'
