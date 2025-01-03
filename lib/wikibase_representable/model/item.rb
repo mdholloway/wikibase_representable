@@ -14,6 +14,7 @@ module WikibaseRepresentable
       ENTITY_TYPE = 'item'
 
       attr_accessor :type, :id, :labels, :descriptions, :alias_groups, :site_links, :statements
+      alias claims statements
 
       def initialize(type: ENTITY_TYPE,
                      id: nil,
