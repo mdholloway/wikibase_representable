@@ -2,6 +2,7 @@
 
 require 'wikibase_representable/model/alias_group_list'
 require 'wikibase_representable/model/data_value'
+require 'wikibase_representable/model/data_value_helper'
 require 'wikibase_representable/model/entity_id_value'
 require 'wikibase_representable/model/entity_id'
 require 'wikibase_representable/model/item'
