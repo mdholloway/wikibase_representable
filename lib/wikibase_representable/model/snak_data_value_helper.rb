@@ -4,8 +4,8 @@ module WikibaseRepresentable
   module Model
     # Convenience methods for grabbing values from snaks
     module SnakDataValueHelper
-      def value_type?
-        main_snak.data_value.is_a?
+      def value_type?(type)
+        main_snak.data_value.is_a?(type)
       end
 
       def data_value
