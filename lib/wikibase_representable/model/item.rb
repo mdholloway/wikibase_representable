@@ -14,7 +14,6 @@ module WikibaseRepresentable
       ENTITY_TYPE = 'item'
 
       attr_accessor :type, :id, :labels, :descriptions, :alias_groups, :site_links, :statements
-      alias claims statements
 
       def initialize(type: ENTITY_TYPE,
                      id: nil,
@@ -44,12 +43,8 @@ module WikibaseRepresentable
         @statements.statements_for_property_id?(property_id)
       end
 
-      def claims_for_property_id(property_id)
-        @statements.statements_for_property_id(property_id)
-      end
-
-      def claims_for_property_id?(property_id)
-        @statements.statements_for_property_id?(property_id)
+      def statement_for_property_id(property_id)
+        @statements.statements_for_property_id(property_id)&.first
       end
 
       def site_link(site_id)
@@ -78,6 +73,11 @@ module WikibaseRepresentable
       def eql?(other)
         self == other
       end
+
+      alias claims statements
+      alias claims_for_property_id statements_for_property_id
+      alias claims_for_property_id? statements_for_property_id?
+      alias claim_for_property_id statement_for_property_id
     end
   end
 end

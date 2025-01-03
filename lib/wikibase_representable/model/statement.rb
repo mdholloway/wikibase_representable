@@ -33,12 +33,16 @@ module WikibaseRepresentable
         !!qualifiers && !qualifiers.empty?
       end
 
-      def qualifiers_for_property_id?(property_id)
+      def qualifiers_by_property_id?(property_id)
         qualifiers&.key?(property_id)
       end
 
       def qualifiers_by_property_id(property_id)
         qualifiers && qualifiers[property_id]
+      end
+
+      def qualifier_by_property_id(property_id)
+        qualifiers_by_property_id(property_id)&.first
       end
 
       def property_id
