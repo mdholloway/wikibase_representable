@@ -34,7 +34,7 @@ module WikibaseRepresentable
       end
 
       def qualifiers_by_property_id?(property_id)
-        qualifiers&.key?(property_id)
+        qualifiers&.snaks_by_property_id?(property_id)
       end
 
       def qualifiers_by_property_id(property_id)
