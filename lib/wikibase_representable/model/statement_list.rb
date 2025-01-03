@@ -14,16 +14,12 @@ module WikibaseRepresentable
         @statements[property_id]
       end
 
-      def claims_for_property_id(property_id)
-        @statements[property_id]
-      end
-
       def statements_for_property_id?(property_id)
         @statements.key?(property_id)
       end
 
-      def claims_for_property_id?(property_id)
-        @statements.key?(property_id)
+      def statement_for_property_id(property_id)
+        statements_for_property_id(property_id)&.first
       end
 
       def each(&)
@@ -46,6 +42,11 @@ module WikibaseRepresentable
       def empty?
         @statements.empty?
       end
+
+      alias claims statements
+      alias claims_for_property_id statements_for_property_id
+      alias claims_for_property_id? statements_for_property_id?
+      alias claim_for_property_id statement_for_property_id
     end
   end
 end
