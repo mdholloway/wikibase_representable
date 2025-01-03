@@ -10,8 +10,20 @@ module WikibaseRepresentable
         @statements = statements
       end
 
-      def get_by_property_id(property_id)
+      def statements_for_property_id(property_id)
         @statements[property_id]
+      end
+
+      def claims_for_property_id(property_id)
+        @statements[property_id]
+      end
+
+      def statements_for_property_id?(property_id)
+        @statements.key?(property_id)
+      end
+
+      def claims_for_property_id?(property_id)
+        @statements.key?(property_id)
       end
 
       def each(&)

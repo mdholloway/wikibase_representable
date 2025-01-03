@@ -10,6 +10,14 @@ module WikibaseRepresentable
         @snaks = snaks
       end
 
+      def snaks_for_property_id(property_id)
+        @snaks[property_id]
+      end
+
+      def snaks_for_property_id?(property_id)
+        @snaks.key?(property_id)
+      end
+
       def replace(snaks)
         SnakList.new(snaks: snaks)
       end

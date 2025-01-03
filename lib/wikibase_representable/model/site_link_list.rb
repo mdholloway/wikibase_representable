@@ -10,11 +10,11 @@ module WikibaseRepresentable
         @site_links = site_links
       end
 
-      def get_by_site_id(site_id)
+      def link_for_site(site_id)
         @site_links[site_id]
       end
 
-      def link_with_site_id?(site_id)
+      def link_for_site?(site_id)
         @site_links.key?(site_id)
       end
 

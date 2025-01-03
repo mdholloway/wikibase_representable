@@ -10,23 +10,15 @@ module WikibaseRepresentable
         @alias_groups = alias_groups
       end
 
-      def get_by_language(language_code)
+      def aliases_for_language(language_code)
         @alias_groups[language_code]
-      end
-
-      def alias_group(alias_group)
-        if alias_group.empty?
-          @alias_groups.delete(alias_group.language_code)
-        else
-          @alias_groups[alias_group.language_code] = alias_group
-        end
       end
 
       def remove_by_language(language_code)
         @alias_groups.delete(language_code)
       end
 
-      def group_for_language?(language_code)
+      def aliases_for_language?(language_code)
         @alias_groups.key?(language_code)
       end
 

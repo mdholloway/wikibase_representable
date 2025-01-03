@@ -12,16 +12,12 @@ module WikibaseRepresentable
         @terms = terms
       end
 
-      def get_by_language(language_code)
+      def term_for_language(language_code)
         @terms[language_code]
       end
 
-      def term(term)
-        if term.text == ''
-          @terms.delete(language_code)
-        else
-          @terms[term.language_code] = term
-        end
+      def value_for_language(language_code)
+        @terms[language_code]&.value
       end
 
       def remove_by_language(language_code)
@@ -30,10 +26,6 @@ module WikibaseRepresentable
 
       def term_for_language?(language_code)
         @terms.key?(language_code)
-      end
-
-      def text_for_language(language_code, value)
-        term(Term.new(language_code, value))
       end
 
       def replace(terms)

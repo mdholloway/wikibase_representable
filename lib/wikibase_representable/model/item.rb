@@ -31,44 +31,32 @@ module WikibaseRepresentable
         @statements = statements
       end
 
-      def get_label_by_language(language_code)
-        @labels.get_by_language(language_code)
+      def label(language_code)
+        @labels.value_for_language(language_code)
       end
 
-      def get_statements_by_property_id(property_id)
-        @statements.get_by_property_id(property_id)
+      def statements_for_property_id(property_id)
+        @statements.statements_for_property_id(property_id)
       end
 
-      def get_claims_by_property_id(property_id)
-        @statements.get_by_property_id(property_id)
+      def statements_for_property_id?(property_id)
+        @statements.statements_for_property_id?(property_id)
       end
 
-      def set_label(language_code, value)
-        @labels.term(Term.new(language_code, value))
+      def claims_for_property_id(property_id)
+        @statements.statements_for_property_id(property_id)
       end
 
-      def set_description(language_code, value)
-        @descriptions.term(Term.new(language_code, value))
+      def claims_for_property_id?(property_id)
+        @statements.statements_for_property_id?(property_id)
       end
 
-      def set_aliases(language_code, aliases)
-        @alias_groups.aliases_for_language(language_code, aliases)
-      end
-
-      def add_site_link(site_link)
-        @site_links.add_site_link(site_link)
-      end
-
-      def remove_site_link(site_id)
-        @site_links.remove_site_link_with_site_id(site_id)
-      end
-
-      def get_site_link(site_id)
-        @site_links.get_by_site_id(site_id)
+      def site_link(site_id)
+        @site_links.link_for_site(site_id)
       end
 
       def link_to_site?(site_id)
-        @site_links.has_link_with_site_id?(site_id)
+        @site_links.link_for_site?(site_id)
       end
 
       def empty?

@@ -29,15 +29,15 @@ module WikibaseRepresentable
         @statements = statements
       end
 
-      def set_label(language_code, value)
+      def label(language_code, value)
         @labels.term(Term.new(language_code, value))
       end
 
-      def set_description(language_code, value)
+      def description(language_code, value)
         @descriptions.term(Term.new(language_code, value))
       end
 
-      def set_aliases(language_code, aliases)
+      def aliases(language_code, aliases)
         @alias_groups.aliases_for_language(language_code, aliases)
       end
 
