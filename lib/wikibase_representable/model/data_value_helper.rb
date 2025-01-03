@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DigitalScriptorium
+module WikibaseRepresentable
   module Model
     # Convenience methods for grabbing values from statements' main snaks
     module DataValueHelper
