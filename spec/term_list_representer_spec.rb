@@ -9,9 +9,7 @@ module WikibaseRepresentable
 
     describe TermListRepresenter do
       let(:term_list) do
-        TermList.new(
-          terms: { 'en' => Term.new(language_code: 'en', value: 'Douglas Adams') }
-        )
+        { 'en' => Term.new(language_code: 'en', value: 'Douglas Adams') }
       end
       let(:representer) { described_class.new(term_list) }
       let(:json) { '{"en":{"language":"en","value":"Douglas Adams"}}' }

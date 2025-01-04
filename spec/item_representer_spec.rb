@@ -9,16 +9,10 @@ module WikibaseRepresentable
 
     describe ItemRepresenter do
       let(:labels) do
-        TermList.new(terms: {
-                       'en' => Term.new(language_code: 'en',
-                                        value: 'Douglas Adams')
-                     })
+        { 'en' => Term.new(language_code: 'en', value: 'Douglas Adams') }
       end
       let(:descriptions) do
-        TermList.new(terms: {
-                       'en' => Term.new(language_code: 'en',
-                                        value: 'writer')
-                     })
+        { 'en' => Term.new(language_code: 'en', value: 'writer') }
       end
       let(:item) do
         Item.new(id: 'Q42',

@@ -9,11 +9,7 @@ module WikibaseRepresentable
 
     describe AliasGroupListRepresenter do
       let(:alias_group_list) do
-        AliasGroupList.new(
-          alias_groups: {
-            'en' => [Term.new(language_code: 'en', value: 'Douglas Adams')]
-          }
-        )
+        { 'en' => [Term.new(language_code: 'en', value: 'Douglas Adams')] }
       end
       let(:representer) { described_class.new(alias_group_list) }
       let(:json) { '{"en":[{"language":"en","value":"Douglas Adams"}]}' }

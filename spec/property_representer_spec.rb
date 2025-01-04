@@ -11,12 +11,9 @@ module WikibaseRepresentable
       let(:property) do
         Property.new(id: 'P1',
                      data_type: 'string',
-                     labels: TermList.new(terms: { 'en' =>
-Term.new(language_code: 'en',
-         value: 'DS ID') }),
-                     descriptions: TermList.new(terms: { 'en' =>
-Term.new(language_code: 'en',
-         value: 'Digital Scriptorium 2.0 identifier') }))
+                     labels: { 'en' => Term.new(language_code: 'en', value: 'DS ID') },
+                     descriptions: { 'en' => Term.new(language_code: 'en',
+                                                      value: 'Digital Scriptorium 2.0 identifier') })
       end
       let(:representer) { described_class.new(property) }
       let(:json) do

@@ -21,8 +21,7 @@ module WikibaseRepresentable
       let(:entity_id_value_snak) do
         PropertyValueSnak.new(property_id: 'P3', hash: 'abcdef', data_value: entity_id_value)
       end
-      let(:snaks) { { 'P1' => [number_value_snak], 'P2' => [string_value_snak], 'P3' => [entity_id_value_snak] } }
-      let(:snak_list) { SnakList.new(snaks: snaks) }
+      let(:snak_list) { { 'P1' => [number_value_snak], 'P2' => [string_value_snak], 'P3' => [entity_id_value_snak] } }
       let(:representer) { described_class.new(snak_list) }
       let(:json) do
         '{"P1":[{"snaktype":"value","property":"P1","hash":"abcdef","datavalue":{"value":42,"type":"number"}}],' \

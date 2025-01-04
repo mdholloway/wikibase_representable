@@ -17,7 +17,7 @@ module WikibaseRepresentable
                       guid: 'Q1$d82dd1f5-f0ca-44e9-9064-ef0f9cbc719c')
       end
       let(:statement_list) do
-        StatementList.new(statements: { 'P1' => [statement] })
+        { 'P1' => [statement] }
       end
       let(:representer) { described_class.new(statement_list) }
       let(:json) do

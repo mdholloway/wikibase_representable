@@ -9,14 +9,14 @@ module WikibaseRepresentable
 
     describe SiteLinkListRepresenter do
       let(:site_link_list) do
-        SiteLinkList.new(site_links: {
-                           'enwiki' => SiteLink.new(site_id: 'enwiki',
-                                                    page_name: 'Douglas_Adams',
-                                                    badges: ['Q17437798']),
-                           'dewiki' => SiteLink.new(site_id: 'dewiki',
-                                                    page_name: 'Douglas_Adams',
-                                                    badges: ['Q17437798'])
-                         })
+        {
+          'enwiki' => SiteLink.new(site_id: 'enwiki',
+                                   page_name: 'Douglas_Adams',
+                                   badges: ['Q17437798']),
+          'dewiki' => SiteLink.new(site_id: 'dewiki',
+                                   page_name: 'Douglas_Adams',
+                                   badges: ['Q17437798'])
+        }
       end
       let(:representer) { described_class.new(site_link_list) }
       let(:json) do
