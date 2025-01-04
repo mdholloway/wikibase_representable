@@ -5,7 +5,7 @@ module WikibaseRepresentable
     # Wraps a hash of Statement arrays keyed by entity id.
     class StatementList < Hash
       def statements_by_property_id(property_id)
-        property_id
+        fetch(property_id, nil)
       end
 
       def statements_by_property_id?(property_id)
@@ -13,7 +13,7 @@ module WikibaseRepresentable
       end
 
       def statement_by_property_id(property_id)
-        property_id&.first
+        statements_by_property_id(property_id)&.first
       end
 
       alias claims_by_property_id statements_by_property_id
