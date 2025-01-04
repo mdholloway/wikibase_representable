@@ -1,6 +1,6 @@
 # wikibase_representable
 
-Provides Wikibase data model classes and support (by way of [representable](https://rubygems.org/gems/representable)) for serializing and deserializing Wikibase data objects to and from JSON.
+Provides Wikibase data model classes and support (by way of [representable](https://rubygems.org/gems/representable)) for serializing and deserializing Wikibase data objects to and from JSON and fluently accessing their properties.
 
 ## Installation
 Install the gem and add to the application's Gemfile by executing:
