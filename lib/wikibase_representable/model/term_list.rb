@@ -7,7 +7,7 @@ module WikibaseRepresentable
     # Wraps a hash of Term objects keyed by language code.
     class TermList < Hash
       def term_for_language(language_code)
-        language_code
+        fetch(language_code, nil)
       end
 
       def value_for_language(language_code)

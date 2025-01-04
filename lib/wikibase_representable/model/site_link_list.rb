@@ -5,7 +5,7 @@ module WikibaseRepresentable
     # Hash of SiteLink objects keyed by site id.
     class SiteLinkList < Hash
       def link_for_site(site_id)
-        site_id
+        fetch(site_id, nil)
       end
 
       def link_for_site?(site_id)

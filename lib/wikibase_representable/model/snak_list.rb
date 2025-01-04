@@ -5,7 +5,7 @@ module WikibaseRepresentable
     # Hash of property ID => Snak array.
     class SnakList < Hash
       def snaks_by_property_id(property_id)
-        property_id
+        fetch(property_id, nil)
       end
 
       def snaks_by_property_id?(property_id)

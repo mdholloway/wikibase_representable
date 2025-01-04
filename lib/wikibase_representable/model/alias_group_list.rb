@@ -5,7 +5,7 @@ module WikibaseRepresentable
     # Wraps a hash of Term arrays keyed by language code.
     class AliasGroupList < Hash
       def aliases_for_language(language_code)
-        language_code
+        fetch(language_code, nil)
       end
 
       def aliases_for_language?(language_code)
