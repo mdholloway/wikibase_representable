@@ -17,12 +17,19 @@ gem install wikibase_representable
 
 ## Usage
 ```ruby
-# Deserialize an object from JSON
+include WikibaseRepresentable::Model
+include WikibaseRepresentable::Representers
+
+# Deserialize an entity from JSON
 json = '{"type":"item","id":"Q42","labels":{"en":{"language":"en","value":"Douglas Adams"}}}'
 item = ItemRepresenter.new(Item.new).from_json(json)
 # => #<WikibaseRepresentable::Model::Item:0x0000000...
 
-# Serialize an object to JSON
+# Retrieve entity data 
+item.labels('en')
+# => "Douglas Adams"
+
+# Serialize an entity to JSON
 json = ItemRepresenter.new(item).to_json
 # => "{\"type\":\"item\",\"id\":\"Q42\"...
 ```
