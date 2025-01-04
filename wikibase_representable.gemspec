@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
                        'Wikibase entities to and from JSON.'
   spec.homepage      = 'https://github.com/mdholloway/wikibase_representable'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.3'
+  spec.required_ruby_version = '>= 3.0'
 
   spec.metadata['rubygems_mfa_required'] = 'true'
 
