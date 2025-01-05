@@ -8,10 +8,6 @@ module WikibaseRepresentable
         main_snak.data_value.is_a?(type)
       end
 
-      def data_value
-        data_value.value
-      end
-
       def entity_id_value
         data_value&.value&.id
       end
