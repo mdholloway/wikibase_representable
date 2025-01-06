@@ -1,4 +1,4 @@
-# wikibase_representable
+# WikibaseRepresentable
 
 Provides Wikibase data model classes and support (by way of [representable](https://rubygems.org/gems/representable)) for serializing and deserializing Wikibase data objects to and from JSON and fluently accessing their properties.
 
