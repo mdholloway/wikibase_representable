@@ -14,5 +14,3 @@ Metrics/ParameterLists:
   Enabled: false
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
-Style/SafeNavigationChainLength:
-  Enabled: false
