@@ -43,10 +43,6 @@ module WikibaseRepresentable
         qualifiers&.snaks_by_property_id(property_id)
       end
 
-      def qualifier_by_property_id(property_id)
-        qualifiers_by_property_id(property_id)&.first
-      end
-
       def property_id
         @main_snak.property_id
       end

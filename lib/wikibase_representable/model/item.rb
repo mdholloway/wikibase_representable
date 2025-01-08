@@ -43,10 +43,6 @@ module WikibaseRepresentable
         @statements.statements_by_property_id?(property_id)
       end
 
-      def statement_by_property_id(property_id)
-        @statements.statements_by_property_id(property_id)&.first
-      end
-
       def site_link(site_id)
         @site_links.link_for_site(site_id)
       end
@@ -77,7 +73,6 @@ module WikibaseRepresentable
       alias claims statements
       alias claims_by_property_id statements_by_property_id
       alias claims_by_property_id? statements_by_property_id?
-      alias claim_by_property_id statement_by_property_id
     end
   end
 end
