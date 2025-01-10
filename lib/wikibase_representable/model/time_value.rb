@@ -36,15 +36,12 @@ module WikibaseRepresentable
         @value.calendar_model
       end
 
+      def state
+        [@type, @value]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          type == other.type &&
-          time == other.time &&
-          time_zone == other.time_zone &&
-          before == other.before &&
-          after == other.after &&
-          precision == other.precision &&
-          calendar_model == other.calendar_model
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

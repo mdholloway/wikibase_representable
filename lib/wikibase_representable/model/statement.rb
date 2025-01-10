@@ -17,22 +17,13 @@ module WikibaseRepresentable
 
       attr_accessor :main_snak, :type, :qualifiers, :qualifiers_order, :guid, :rank
 
-      def initialize(main_snak: nil,
-                     type: TYPE,
-                     qualifiers: nil,
-                     qualifiers_order: nil,
-                     guid: nil,
-                     rank: RANK_NORMAL)
-        @main_snak = main_snak
-        @type = type
-        @qualifiers = qualifiers
-        @qualifiers_order = qualifiers_order
-        @guid = guid
-        @rank = rank
-      end
-
-      def qualifiers?
-        !!qualifiers && !qualifiers.empty?
+      def initialize(**kwargs)
+        @main_snak = kwargs[:main_snak]
+        @type = kwargs[:type] || TYPE
+        @qualifiers = kwargs[:qualifiers]
+        @qualifiers_order = kwargs[:qualifiers_order]
+        @guid = kwargs[:guid]
+        @rank = kwargs[:rank] || RANK_NORMAL
       end
 
       def qualifiers_by_property_id?(property_id)
@@ -47,14 +38,12 @@ module WikibaseRepresentable
         @main_snak.property_id
       end
 
+      def state
+        [@main_snak, @type, @qualifiers, @qualifiers_order, @guid, @rank]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          other.type == @type &&
-          other.main_snak == @main_snak &&
-          other.qualifiers == @qualifiers &&
-          other.qualifiers_order == @qualifiers_order &&
-          other.rank == @rank &&
-          other.guid == @guid
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

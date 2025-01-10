@@ -6,23 +6,21 @@ module WikibaseRepresentable
     class Time
       attr_accessor :time, :time_zone, :before, :after, :precision, :calendar_model
 
-      def initialize(time: nil, time_zone: nil, before: nil, after: nil, precision: nil, calendar_model: nil)
-        @time = time
-        @time_zone = time_zone
-        @before = before
-        @after = after
-        @precision = precision
-        @calendar_model = calendar_model
+      def initialize(**kwargs)
+        @time = kwargs[:time]
+        @time_zone = kwargs[:time_zone]
+        @before = kwargs[:before]
+        @after = kwargs[:after]
+        @precision = kwargs[:precision]
+        @calendar_model = kwargs[:calendar_model]
+      end
+
+      def state
+        [@time, @time_zone, @before, @after, @precision, @calendar_model]
       end
 
       def ==(other)
-        other.is_a?(self.class) &&
-          time == other.time &&
-          time_zone == other.time_zone &&
-          before == other.before &&
-          after == other.after &&
-          precision == other.precision &&
-          calendar_model == other.calendar_model
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

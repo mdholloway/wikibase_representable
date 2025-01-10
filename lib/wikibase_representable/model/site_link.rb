@@ -12,12 +12,12 @@ module WikibaseRepresentable
         @badges = badges
       end
 
+      def state
+        [@site_id, @page_name, @badges]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          @site_id == other.site_id &&
-          @page_name == other.page_name &&
-          @badges.size == other.badges.size &&
-          @badges & other.badges == @badges
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

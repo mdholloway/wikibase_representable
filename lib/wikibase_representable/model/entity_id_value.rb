@@ -24,12 +24,12 @@ module WikibaseRepresentable
         @value.numeric_id
       end
 
+      def state
+        [@type, @value]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          type == other.type &&
-          id == other.id &&
-          entity_type == other.entity_type &&
-          numeric_id == other.numeric_id
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

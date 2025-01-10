@@ -18,12 +18,12 @@ module WikibaseRepresentable
         @hash = hash
       end
 
+      def state
+        [@type, @property_id, @data_value, @hash]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          other.type == type &&
-          other.property_id == property_id &&
-          other.data_value == data_value &&
-          other.hash == hash
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

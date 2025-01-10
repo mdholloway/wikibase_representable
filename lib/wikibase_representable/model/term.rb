@@ -11,10 +11,12 @@ module WikibaseRepresentable
         @value = value
       end
 
+      def state
+        [@language_code, @value]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          @language_code == other.language_code &&
-          @value == other.value
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

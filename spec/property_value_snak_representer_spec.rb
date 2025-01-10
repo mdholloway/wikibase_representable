@@ -46,12 +46,12 @@ module WikibaseRepresentable
 
       describe 'given a time value' do
         let(:time) do
-          Time.new(time: '+1971-03-11T00:00:00Z',
-                   time_zone: 0,
-                   before: 0,
-                   after: 0,
-                   precision: 11,
-                   calendar_model: 'http://www.wikidata.org/entity/Q1985727')
+          WikibaseRepresentable::Model::Time.new(time: '+1971-03-11T00:00:00Z',
+                                                 time_zone: 0,
+                                                 before: 0,
+                                                 after: 0,
+                                                 precision: 11,
+                                                 calendar_model: 'http://www.wikidata.org/entity/Q1985727')
         end
         let(:data_value) { TimeValue.new(value: time) }
         let(:snak) do

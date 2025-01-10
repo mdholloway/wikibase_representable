@@ -15,20 +15,14 @@ module WikibaseRepresentable
 
       attr_accessor :type, :id, :labels, :descriptions, :alias_groups, :site_links, :statements
 
-      def initialize(type: ENTITY_TYPE,
-                     id: nil,
-                     labels: TermList.new,
-                     descriptions: TermList.new,
-                     alias_groups: AliasGroupList.new,
-                     site_links: SiteLinkList.new,
-                     statements: StatementList.new)
-        @type = type
-        @id = id
-        @labels = labels
-        @descriptions = descriptions
-        @alias_groups = alias_groups
-        @site_links = site_links
-        @statements = statements
+      def initialize(**kwargs)
+        @type = ENTITY_TYPE
+        @id = kwargs[:id]
+        @labels = kwargs[:labels] || TermList.new
+        @descriptions = kwargs[:descriptions] || TermList.new
+        @alias_groups = kwargs[:alias_groups] || AliasGroupList.new
+        @site_links = kwargs[:site_links] || SiteLinkList.new
+        @statements = kwargs[:statements] || StatementList.new
       end
 
       def label(language_code)
@@ -55,15 +49,12 @@ module WikibaseRepresentable
         @labels.empty? && @descriptions.empty? && @alias_groups.empty? && @site_links.empty? && @statements.empty?
       end
 
+      def state
+        [@type, @id, @labels, @descriptions, @alias_groups, @site_links, @statements]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          @type == other.type &&
-          @id == other.id &&
-          @labels == other.labels &&
-          @descriptions == other.descriptions &&
-          @alias_groups == other.alias_groups &&
-          @site_links == other.site_links &&
-          @statements == other.statements
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)

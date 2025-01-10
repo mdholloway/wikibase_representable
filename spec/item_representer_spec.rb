@@ -21,12 +21,31 @@ module WikibaseRepresentable
       end
       let(:representer) { described_class.new(item) }
       let(:json) do
-        '{"type":"item","id":"Q42","labels":{"en":{"language":"en","value":"Douglas Adams"}},' \
-          '"descriptions":{"en":{"language":"en","value":"writer"}},"aliases":{},"claims":{},"sitelinks":{}}'
+        <<~JSON
+          {
+            "type": "item",
+            "id": "Q42",
+            "labels": {
+              "en": {
+                "language": "en",
+                "value": "Douglas Adams"
+              }
+            },
+            "descriptions": {
+              "en": {
+                "language": "en",
+                "value": "writer"
+              }
+            },
+            "aliases": {},
+            "claims": {},
+            "sitelinks": {}
+          }
+        JSON
       end
 
       it 'serializes an item object' do
-        expect(representer.to_json).to eq(json)
+        expect(representer.to_json).to eq(JSON.parse(json).to_json)
       end
 
       it 'deserializes an item object' do

@@ -12,11 +12,12 @@ module WikibaseRepresentable
         @entity_type = entity_type
       end
 
+      def state
+        [@id, @numeric_id, @entity_type]
+      end
+
       def ==(other)
-        other.is_a?(self.class) &&
-          id == other.id &&
-          entity_type == other.entity_type &&
-          numeric_id == other.numeric_id
+        other.class == self.class && other.state == state
       end
 
       def eql?(other)
