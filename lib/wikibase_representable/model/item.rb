@@ -29,6 +29,10 @@ module WikibaseRepresentable
         @labels.value_for_language(language_code)
       end
 
+      def aliases_for_language(language_code)
+        @alias_groups.aliases_for_language(language_code)
+      end
+
       def statements_by_property_id(property_id)
         @statements.statements_by_property_id(property_id)
       end
