@@ -13,19 +13,19 @@ module WikibaseRepresentable
       end
 
       def id
-        @value.id
+        value.id
       end
 
       def entity_type
-        @value.entity_type
+        value.entity_type
       end
 
       def numeric_id
-        @value.numeric_id
+        value.numeric_id
       end
 
       def state
-        [@type, @value]
+        [type, value]
       end
 
       def ==(other)

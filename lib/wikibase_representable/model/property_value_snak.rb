@@ -19,7 +19,7 @@ module WikibaseRepresentable
       end
 
       def state
-        [@type, @property_id, @data_value, @hash]
+        [type, property_id, data_value, hash]
       end
 
       def ==(other)

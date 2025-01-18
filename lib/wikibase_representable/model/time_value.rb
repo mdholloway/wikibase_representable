@@ -13,31 +13,31 @@ module WikibaseRepresentable
       end
 
       def time
-        @value.time
+        value.time
       end
 
       def time_zone
-        @value.time_zone
+        value.time_zone
       end
 
       def before
-        @value.before
+        value.before
       end
 
       def after
-        @value.after
+        value.after
       end
 
       def precision
-        @value.precision
+        value.precision
       end
 
       def calendar_model
-        @value.calendar_model
+        value.calendar_model
       end
 
       def state
-        [@type, @value]
+        [type, value]
       end
 
       def ==(other)

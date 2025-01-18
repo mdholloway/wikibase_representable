@@ -35,11 +35,11 @@ module WikibaseRepresentable
       end
 
       def property_id
-        @main_snak.property_id
+        main_snak.property_id
       end
 
       def state
-        [@main_snak, @type, @qualifiers, @qualifiers_order, @guid, @rank]
+        [main_snak, type, qualifiers, qualifiers_order, guid, rank]
       end
 
       def ==(other)

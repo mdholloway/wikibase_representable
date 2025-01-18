@@ -13,7 +13,7 @@ module WikibaseRepresentable
       end
 
       def state
-        [@site_id, @page_name, @badges]
+        [site_id, page_name, badges]
       end
 
       def ==(other)

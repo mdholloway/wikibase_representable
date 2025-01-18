@@ -26,35 +26,35 @@ module WikibaseRepresentable
       end
 
       def label(language_code)
-        @labels.value_for_language(language_code)
+        labels.value_for_language(language_code)
       end
 
       def aliases_for_language(language_code)
-        @alias_groups.aliases_for_language(language_code)
+        alias_groups.aliases_for_language(language_code)
       end
 
       def statements_by_property_id(property_id)
-        @statements.statements_by_property_id(property_id)
+        statements.statements_by_property_id(property_id)
       end
 
       def statements_by_property_id?(property_id)
-        @statements.statements_by_property_id?(property_id)
+        statements.statements_by_property_id?(property_id)
       end
 
       def site_link(site_id)
-        @site_links.link_for_site(site_id)
+        site_links.link_for_site(site_id)
       end
 
       def link_to_site?(site_id)
-        @site_links.link_for_site?(site_id)
+        site_links.link_for_site?(site_id)
       end
 
       def empty?
-        @labels.empty? && @descriptions.empty? && @alias_groups.empty? && @site_links.empty? && @statements.empty?
+        labels.empty? && descriptions.empty? && alias_groups.empty? && site_links.empty? && statements.empty?
       end
 
       def state
-        [@type, @id, @labels, @descriptions, @alias_groups, @site_links, @statements]
+        [type, id, labels, descriptions, alias_groups, site_links, statements]
       end
 
       def ==(other)

@@ -16,7 +16,7 @@ module WikibaseRepresentable
       end
 
       def state
-        [@time, @time_zone, @before, @after, @precision, @calendar_model]
+        [time, time_zone, before, after, precision, calendar_model]
       end
 
       def ==(other)

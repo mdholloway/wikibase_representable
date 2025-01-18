@@ -12,7 +12,7 @@ module WikibaseRepresentable
       end
 
       def state
-        [@language_code, @value]
+        [language_code, value]
       end
 
       def ==(other)

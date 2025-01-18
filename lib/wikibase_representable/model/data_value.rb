@@ -12,7 +12,7 @@ module WikibaseRepresentable
       end
 
       def state
-        [@type, @value]
+        [type, value]
       end
 
       def ==(other)

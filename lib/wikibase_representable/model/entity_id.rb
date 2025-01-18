@@ -13,7 +13,7 @@ module WikibaseRepresentable
       end
 
       def state
-        [@id, @numeric_id, @entity_type]
+        [id, numeric_id, entity_type]
       end
 
       def ==(other)
