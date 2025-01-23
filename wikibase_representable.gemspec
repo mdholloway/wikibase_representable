@@ -37,5 +37,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'diffy', '~> 3.4'
   spec.add_development_dependency 'rake', '~> 13.2'
   spec.add_development_dependency 'rspec', '~> 3.13'
+  spec.add_development_dependency 'simplecov', '~> 0.22.0'
+  spec.add_development_dependency 'pry', '~> 0.15.2'
+
   spec.add_development_dependency 'upennlib-rubocop', '~> 1.2.0'
 end
