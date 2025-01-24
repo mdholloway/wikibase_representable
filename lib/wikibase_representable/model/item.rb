@@ -5,15 +5,20 @@ require 'wikibase_representable/model/site_link_list'
 require 'wikibase_representable/model/statement_list'
 require 'wikibase_representable/model/term_list'
 require 'wikibase_representable/model/term'
+require_relative './claimable'
+require_relative './labelable'
 
 module WikibaseRepresentable
   module Model
     # Represents a single Wikibase item.
     # See https://www.mediawiki.org/wiki/Wikibase/DataModel#Items
     class Item
+      include Claimable
+      include Labelable
+
       ENTITY_TYPE = 'item'
 
-      attr_accessor :type, :id, :labels, :descriptions, :alias_groups, :site_links, :statements
+      attr_accessor :type, :id, :descriptions, :alias_groups, :site_links
 
       def initialize(**kwargs)
         @type = ENTITY_TYPE
@@ -25,20 +30,8 @@ module WikibaseRepresentable
         @statements = kwargs[:statements] || StatementList.new
       end
 
-      def label(language_code)
-        labels.value_for_language(language_code)
-      end
-
       def aliases_for_language(language_code)
         alias_groups.aliases_for_language(language_code)
-      end
-
-      def statements_by_property_id(property_id)
-        statements.statements_by_property_id(property_id)
-      end
-
-      def statements_by_property_id?(property_id)
-        statements.statements_by_property_id?(property_id)
       end
 
       def site_link(site_id)
@@ -60,10 +53,6 @@ module WikibaseRepresentable
       def eql?(other)
         self == other
       end
-
-      alias claims statements
-      alias claims_by_property_id statements_by_property_id
-      alias claims_by_property_id? statements_by_property_id?
     end
   end
 end

@@ -4,14 +4,17 @@ require 'wikibase_representable/model/alias_group_list'
 require 'wikibase_representable/model/statement_list'
 require 'wikibase_representable/model/term_list'
 require 'wikibase_representable/model/term'
+require_relative './labelable'
 
 module WikibaseRepresentable
   module Model
     # Represents a single Wikibase property.
     class Property
+      include Labelable
+
       ENTITY_TYPE = 'property'
 
-      attr_accessor :type, :id, :data_type, :labels, :descriptions, :alias_groups, :statements
+      attr_accessor :type, :id, :data_type, :descriptions, :alias_groups, :statements
 
       def initialize(**kwargs)
         @type = ENTITY_TYPE
