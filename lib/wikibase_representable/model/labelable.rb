@@ -10,7 +10,8 @@ module WikibaseRepresentable
       # @yieldparam [String] language code; e.g., 'en'
       # @yieldparam [Array<WikibaseRepresentable::Model::Term>] array of labels
       def each_label(&block)
-        labels.each(&block)
+        # despite rubocop's complaint ensure we yield separately args
+        labels.each { |code,terms| yield(code, terms) }
       end
 
       def label(language_code)

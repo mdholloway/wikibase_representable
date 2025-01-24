@@ -10,7 +10,8 @@ module WikibaseRepresentable
       # @yieldparam [String] property_id
       # @yieldparam [Array<WikibaseRepresentable::Model::Statement>] array of statements
       def each_statement(&block)
-        statements.each(&block)
+        # despite rubocop's complaint ensure we yield separately args
+        statements.each { |prop,stmts| yield(prop, stmts) }
       end
 
       def statements_by_property_id(property_id)
