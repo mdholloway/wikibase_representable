@@ -23,22 +23,6 @@ module WikibaseRepresentable
         @statements = kwargs[:statements] || StatementList.new
       end
 
-      def label(language_code, value)
-        labels.term(Term.new(language_code, value))
-      end
-
-      def description(language_code, value)
-        descriptions.term(Term.new(language_code, value))
-      end
-
-      def aliases(language_code, aliases)
-        alias_groups.aliases_for_language(language_code, aliases)
-      end
-
-      def empty?
-        labels.empty? && descriptions.empty? && alias_groups.empty? && statements.empty?
-      end
-
       def state
         [type, id, data_type, labels, descriptions, alias_groups, statements]
       end
