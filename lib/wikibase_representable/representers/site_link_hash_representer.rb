@@ -7,7 +7,7 @@ require 'wikibase_representable/representers/site_link_representer'
 module WikibaseRepresentable
   module Representers
     # Representer for a hash of (siteid => sitelink)
-    class SiteLinkListRepresenter < Representable::Decorator
+    class SiteLinkHashRepresenter < Representable::Decorator
       include Representable::JSON::Hash
       include WikibaseRepresentable::Model
 

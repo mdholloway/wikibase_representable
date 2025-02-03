@@ -2,9 +2,9 @@
 
 require 'representable/json'
 require 'wikibase_representable/model'
-require 'wikibase_representable/representers/alias_group_list_representer'
-require 'wikibase_representable/representers/statement_list_representer'
-require 'wikibase_representable/representers/term_list_representer'
+require 'wikibase_representable/representers/alias_group_hash_representer'
+require 'wikibase_representable/representers/statement_hash_representer'
+require 'wikibase_representable/representers/term_hash_representer'
 
 module WikibaseRepresentable
   module Representers
@@ -16,16 +16,16 @@ module WikibaseRepresentable
       property :type
       property :data_type, as: 'datatype'
       property :id
-      property :labels, decorator: TermListRepresenter,
-                        class: TermList
-      property :descriptions, decorator: TermListRepresenter,
-                              class: TermList
+      property :labels, decorator: TermHashRepresenter,
+                        class: TermHash
+      property :descriptions, decorator: TermHashRepresenter,
+                              class: TermHash
       property :alias_groups, as: 'aliases',
-                              decorator: AliasGroupListRepresenter,
-                              class: AliasGroupList
+                              decorator: AliasGroupHashRepresenter,
+                              class: AliasGroupHash
       property :statements, as: 'claims',
-                            decorator: StatementListRepresenter,
-                            class: StatementList
+                            decorator: StatementHashRepresenter,
+                            class: StatementHash
     end
   end
 end

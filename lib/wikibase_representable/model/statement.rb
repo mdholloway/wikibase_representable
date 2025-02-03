@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model/snak_list'
+require 'wikibase_representable/model/snak_hash'
 
 module WikibaseRepresentable
   module Model

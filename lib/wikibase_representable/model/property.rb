@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model/alias_group_list'
-require 'wikibase_representable/model/statement_list'
-require 'wikibase_representable/model/term_list'
+require 'wikibase_representable/model/alias_group_hash'
+require 'wikibase_representable/model/statement_hash'
+require 'wikibase_representable/model/term_hash'
 require 'wikibase_representable/model/term'
 
 module WikibaseRepresentable
@@ -17,10 +17,10 @@ module WikibaseRepresentable
         @type = ENTITY_TYPE
         @data_type = kwargs[:data_type]
         @id = kwargs[:id]
-        @labels = kwargs[:labels] || TermList.new
-        @descriptions = kwargs[:descriptions] || TermList.new
-        @alias_groups = kwargs[:alias_groups] || AliasGroupList.new
-        @statements = kwargs[:statements] || StatementList.new
+        @labels = kwargs[:labels] || TermHash.new
+        @descriptions = kwargs[:descriptions] || TermHash.new
+        @alias_groups = kwargs[:alias_groups] || AliasGroupHash.new
+        @statements = kwargs[:statements] || StatementHash.new
       end
 
       def state

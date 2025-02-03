@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model/alias_group_list'
-require 'wikibase_representable/model/site_link_list'
-require 'wikibase_representable/model/statement_list'
-require 'wikibase_representable/model/term_list'
+require 'wikibase_representable/model/alias_group_hash'
+require 'wikibase_representable/model/site_link_hash'
+require 'wikibase_representable/model/statement_hash'
+require 'wikibase_representable/model/term_hash'
 require 'wikibase_representable/model/term'
 
 module WikibaseRepresentable
@@ -18,11 +18,11 @@ module WikibaseRepresentable
       def initialize(**kwargs)
         @type = ENTITY_TYPE
         @id = kwargs[:id]
-        @labels = kwargs[:labels] || TermList.new
-        @descriptions = kwargs[:descriptions] || TermList.new
-        @alias_groups = kwargs[:alias_groups] || AliasGroupList.new
-        @site_links = kwargs[:site_links] || SiteLinkList.new
-        @statements = kwargs[:statements] || StatementList.new
+        @labels = kwargs[:labels] || TermHash.new
+        @descriptions = kwargs[:descriptions] || TermHash.new
+        @alias_groups = kwargs[:alias_groups] || AliasGroupHash.new
+        @site_links = kwargs[:site_links] || SiteLinkHash.new
+        @statements = kwargs[:statements] || StatementHash.new
       end
 
       def label(language_code)

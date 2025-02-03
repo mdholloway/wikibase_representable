@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 require 'wikibase_representable/model'
-require 'wikibase_representable/representers/statement_list_representer'
+require 'wikibase_representable/representers/statement_hash_representer'
 
 module WikibaseRepresentable
   module Representers
     include WikibaseRepresentable::Model
 
-    describe StatementListRepresenter do
+    describe StatementHashRepresenter do
       let(:data_value) { DataValue.new(type: 'string', value: 'foo') }
       let(:main_snak) do
         PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
       end
-      let(:statement_list) do
+      let(:statement_hash) do
         { 'P1' => [Statement.new(main_snak: main_snak, guid: 'Q1$d82dd1f5-f0ca-44e9-9064-ef0f9cbc719c')] }
       end
-      let(:representer) { described_class.new(statement_list) }
+      let(:representer) { described_class.new(statement_hash) }
       let(:json) do
         <<~JSON
           {
@@ -44,9 +44,9 @@ module WikibaseRepresentable
       end
 
       it 'deserializes a statement list object' do
-        expect(described_class.new(StatementList.new)
+        expect(described_class.new(StatementHash.new)
           .from_json(json))
-          .to eq(statement_list)
+          .to eq(statement_hash)
       end
     end
   end

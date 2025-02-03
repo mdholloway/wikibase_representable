@@ -3,7 +3,7 @@
 require 'representable/json'
 require 'wikibase_representable/model'
 require 'wikibase_representable/representers/property_value_snak_representer'
-require 'wikibase_representable/representers/snak_list_representer'
+require 'wikibase_representable/representers/snak_hash_representer'
 
 module WikibaseRepresentable
   module Representers
@@ -16,8 +16,8 @@ module WikibaseRepresentable
                            decorator: PropertyValueSnakRepresenter,
                            class: PropertyValueSnak
       property :type
-      property :qualifiers, decorator: SnakListRepresenter,
-                            class: SnakList
+      property :qualifiers, decorator: SnakHashRepresenter,
+                            class: SnakHash
       property :qualifiers_order, as: 'qualifiers-order'
       property :guid, as: 'id'
       property :rank
