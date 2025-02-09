@@ -11,20 +11,20 @@ module WikibaseRepresentable
     class Property
       ENTITY_TYPE = 'property'
 
-      attr_accessor :type, :id, :data_type, :labels, :descriptions, :alias_groups, :statements
+      attr_accessor :type, :id, :data_type, :labels_hash, :descriptions_hash, :alias_groups_hash, :statements_hash
 
       def initialize(**kwargs)
         @type = ENTITY_TYPE
         @data_type = kwargs[:data_type]
         @id = kwargs[:id]
-        @labels = kwargs[:labels] || TermHash.new
-        @descriptions = kwargs[:descriptions] || TermHash.new
-        @alias_groups = kwargs[:alias_groups] || AliasGroupHash.new
-        @statements = kwargs[:statements] || StatementHash.new
+        @labels_hash = kwargs[:labels_hash] || TermHash.new
+        @descriptions_hash = kwargs[:descriptions_hash] || TermHash.new
+        @alias_groups_hash = kwargs[:alias_groups_hash] || AliasGroupHash.new
+        @statements_hash = kwargs[:statements_hash] || StatementHash.new
       end
 
       def state
-        [type, id, data_type, labels, descriptions, alias_groups, statements]
+        [type, id, data_type, labels_hash, descriptions_hash, alias_groups_hash, statements_hash]
       end
 
       def ==(other)

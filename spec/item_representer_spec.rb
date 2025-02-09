@@ -8,16 +8,16 @@ module WikibaseRepresentable
     include WikibaseRepresentable::Model
 
     describe ItemRepresenter do
-      let(:labels) do
+      let(:labels_hash) do
         { 'en' => Term.new(language_code: 'en', value: 'Douglas Adams') }
       end
-      let(:descriptions) do
+      let(:descriptions_hash) do
         { 'en' => Term.new(language_code: 'en', value: 'writer') }
       end
       let(:item) do
         Item.new(id: 'Q42',
-                 labels: labels,
-                 descriptions: descriptions)
+                 labels_hash: labels_hash,
+                 descriptions_hash: descriptions_hash)
       end
       let(:representer) { described_class.new(item) }
       let(:json) do
@@ -25,21 +25,21 @@ module WikibaseRepresentable
           {
             "type": "item",
             "id": "Q42",
-            "labels": {
+            "labels_hash": {
               "en": {
                 "language": "en",
                 "value": "Douglas Adams"
               }
             },
-            "descriptions": {
+            "descriptions_hash": {
               "en": {
                 "language": "en",
                 "value": "writer"
               }
             },
-            "aliases": {},
-            "claims": {},
-            "sitelinks": {}
+            "aliases_hash": {},
+            "claims_hash": {},
+            "site_links_hash": {}
           }
         JSON
       end
