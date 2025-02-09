@@ -25,21 +25,21 @@ module WikibaseRepresentable
           {
             "type": "item",
             "id": "Q42",
-            "labels_hash": {
+            "labels": {
               "en": {
                 "language": "en",
                 "value": "Douglas Adams"
               }
             },
-            "descriptions_hash": {
+            "descriptions": {
               "en": {
                 "language": "en",
                 "value": "writer"
               }
             },
-            "aliases_hash": {},
-            "claims_hash": {},
-            "site_links_hash": {}
+            "aliases": {},
+            "claims": {},
+            "site_links": {}
           }
         JSON
       end

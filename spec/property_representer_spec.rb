@@ -22,20 +22,20 @@ module WikibaseRepresentable
             "type": "property",
             "datatype": "string",
             "id": "P1",
-            "labels_hash": {
+            "labels": {
               "en": {
                 "language": "en",
                 "value": "DS ID"
               }
             },
-            "descriptions_hash": {
+            "descriptions": {
               "en": {
                 "language": "en",
                 "value": "Digital Scriptorium 2.0 identifier"
               }
             },
-            "aliases_hash": {},
-            "claims_hash": {}
+            "aliases": {},
+            "claims": {}
           }
         JSON
       end

@@ -16,14 +16,16 @@ module WikibaseRepresentable
       property :type
       property :data_type, as: 'datatype'
       property :id
-      property :labels_hash, decorator: TermHashRepresenter,
+      property :labels_hash, as: 'labels',
+                             decorator: TermHashRepresenter,
                              class: TermHash
-      property :descriptions_hash, decorator: TermHashRepresenter,
+      property :descriptions_hash, as: 'descriptions',
+                                   decorator: TermHashRepresenter,
                                    class: TermHash
-      property :alias_groups_hash, as: 'aliases_hash',
+      property :alias_groups_hash, as: 'aliases',
                                    decorator: AliasGroupHashRepresenter,
                                    class: AliasGroupHash
-      property :statements_hash, as: 'claims_hash',
+      property :statements_hash, as: 'claims',
                                  decorator: StatementHashRepresenter,
                                  class: StatementHash
     end
