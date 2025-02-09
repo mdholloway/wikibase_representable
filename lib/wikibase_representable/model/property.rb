@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model/alias_group_list'
-require 'wikibase_representable/model/statement_list'
-require 'wikibase_representable/model/term_list'
+require 'wikibase_representable/model/alias_group_hash'
+require 'wikibase_representable/model/statement_hash'
+require 'wikibase_representable/model/term_hash'
 require 'wikibase_representable/model/term'
 
 module WikibaseRepresentable
@@ -11,20 +11,20 @@ module WikibaseRepresentable
     class Property
       ENTITY_TYPE = 'property'
 
-      attr_accessor :type, :id, :data_type, :labels, :descriptions, :alias_groups, :statements
+      attr_accessor :type, :id, :data_type, :labels_hash, :descriptions_hash, :alias_groups_hash, :statements_hash
 
       def initialize(**kwargs)
         @type = ENTITY_TYPE
         @data_type = kwargs[:data_type]
         @id = kwargs[:id]
-        @labels = kwargs[:labels] || TermList.new
-        @descriptions = kwargs[:descriptions] || TermList.new
-        @alias_groups = kwargs[:alias_groups] || AliasGroupList.new
-        @statements = kwargs[:statements] || StatementList.new
+        @labels_hash = kwargs[:labels_hash] || TermHash.new
+        @descriptions_hash = kwargs[:descriptions_hash] || TermHash.new
+        @alias_groups_hash = kwargs[:alias_groups_hash] || AliasGroupHash.new
+        @statements_hash = kwargs[:statements_hash] || StatementHash.new
       end
 
       def state
-        [type, id, data_type, labels, descriptions, alias_groups, statements]
+        [type, id, data_type, labels_hash, descriptions_hash, alias_groups_hash, statements_hash]
       end
 
       def ==(other)

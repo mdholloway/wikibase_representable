@@ -2,10 +2,10 @@
 
 require 'representable/json'
 require 'wikibase_representable/model'
-require 'wikibase_representable/representers/alias_group_list_representer'
-require 'wikibase_representable/representers/site_link_list_representer'
-require 'wikibase_representable/representers/statement_list_representer'
-require 'wikibase_representable/representers/term_list_representer'
+require 'wikibase_representable/representers/alias_group_hash_representer'
+require 'wikibase_representable/representers/site_link_hash_representer'
+require 'wikibase_representable/representers/statement_hash_representer'
+require 'wikibase_representable/representers/term_hash_representer'
 
 module WikibaseRepresentable
   module Representers
@@ -16,19 +16,18 @@ module WikibaseRepresentable
 
       property :type
       property :id
-      property :labels, decorator: TermListRepresenter,
-                        class: TermList
-      property :descriptions, decorator: TermListRepresenter,
-                              class: TermList
-      property :alias_groups, as: 'aliases',
-                              decorator: AliasGroupListRepresenter,
-                              class: AliasGroupList
-      property :statements, as: 'claims',
-                            decorator: StatementListRepresenter,
-                            class: StatementList
-      property :site_links, as: 'sitelinks',
-                            decorator: SiteLinkListRepresenter,
-                            class: SiteLinkList
+      property :labels_hash, decorator: TermHashRepresenter,
+                             class: TermHash
+      property :descriptions_hash, decorator: TermHashRepresenter,
+                                   class: TermHash
+      property :alias_groups_hash, as: 'aliases_hash',
+                                   decorator: AliasGroupHashRepresenter,
+                                   class: AliasGroupHash
+      property :statements_hash, as: 'claims_hash',
+                                 decorator: StatementHashRepresenter,
+                                 class: StatementHash
+      property :site_links_hash, decorator: SiteLinkHashRepresenter,
+                                 class: SiteLinkHash
     end
   end
 end

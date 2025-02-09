@@ -2,8 +2,8 @@
 
 module WikibaseRepresentable
   module Model
-    # Wraps a hash of Statement arrays keyed by entity id.
-    class StatementList < Hash
+    # Hash of Statement lists keyed by property id.
+    class StatementHash < Hash
       def statements_by_property_id(property_id)
         fetch(property_id, nil)
       end

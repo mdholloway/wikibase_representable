@@ -2,8 +2,8 @@
 
 module WikibaseRepresentable
   module Model
-    # Hash of property ID => Snak array.
-    class SnakList < Hash
+    # Hash of Snak lists keyed by property ID
+    class SnakHash < Hash
       def snaks_by_property_id(property_id)
         fetch(property_id, nil)
       end

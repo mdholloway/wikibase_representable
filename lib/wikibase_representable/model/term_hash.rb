@@ -4,8 +4,8 @@ require 'wikibase_representable/model/term'
 
 module WikibaseRepresentable
   module Model
-    # Wraps a hash of Term objects keyed by language code.
-    class TermList < Hash
+    # Hash of Term objects keyed by language code.
+    class TermHash < Hash
       def term_for_language(language_code)
         fetch(language_code, nil)
       end
