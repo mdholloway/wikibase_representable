@@ -10,19 +10,18 @@ module WikibaseRepresentable
     # Representer for a Wikibase statement (aka claim)
     class StatementRepresenter < Representable::Decorator
       include Representable::JSON
-      include WikibaseRepresentable::Model
 
       property :main_snak, as: 'mainsnak',
                            decorator: PropertyValueSnakRepresenter,
-                           class: PropertyValueSnak
+                           class: Model::PropertyValueSnak
       property :type
       property :qualifiers, decorator: SnakHashRepresenter,
-                            class: SnakHash
+                            class: Model::SnakHash
       property :qualifiers_order, as: 'qualifiers-order'
       property :guid, as: 'id'
       property :rank
 
-      collection_representer class: Statement
+      collection_representer class: Model::Statement
     end
   end
 end

@@ -8,12 +8,11 @@ module WikibaseRepresentable
     # Representer for a term object
     class TermRepresenter < Representable::Decorator
       include Representable::JSON
-      include WikibaseRepresentable::Model
 
       property :language_code, as: 'language'
       property :value
 
-      collection_representer class: Term
+      collection_representer class: Model::Term
     end
   end
 end

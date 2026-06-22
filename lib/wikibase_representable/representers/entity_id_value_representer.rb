@@ -9,9 +9,8 @@ module WikibaseRepresentable
     # Representer for data values referring to entity IDs
     class EntityIdValueRepresenter < Representable::Decorator
       include Representable::JSON
-      include WikibaseRepresentable::Model
 
-      property :value, decorator: EntityIdRepresenter, class: EntityId
+      property :value, decorator: EntityIdRepresenter, class: Model::EntityId
       property :type
     end
   end

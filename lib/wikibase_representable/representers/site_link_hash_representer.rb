@@ -9,9 +9,8 @@ module WikibaseRepresentable
     # Representer for a hash of (siteid => sitelink)
     class SiteLinkHashRepresenter < Representable::Decorator
       include Representable::JSON::Hash
-      include WikibaseRepresentable::Model
 
-      values decorator: SiteLinkRepresenter, class: SiteLink
+      values decorator: SiteLinkRepresenter, class: Model::SiteLink
     end
   end
 end
