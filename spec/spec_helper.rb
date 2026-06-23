@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-SimpleCov.start
+require 'simplecov' if ENV['COVERAGE']
+SimpleCov.start if ENV['COVERAGE']
 
 require 'rspec'
 require 'wikibase_representable'
