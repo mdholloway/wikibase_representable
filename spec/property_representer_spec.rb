@@ -1,18 +1,15 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/property_representer'
+require 'spec_helper'
 
 module WikibaseRepresentable
   module Representers
-    include WikibaseRepresentable::Model
-
     describe PropertyRepresenter do
       let(:property) do
-        Property.new(id: 'P1',
+        Model::Property.new(id: 'P1',
                      data_type: 'string',
-                     labels_hash: { 'en' => Term.new(language_code: 'en', value: 'DS ID') },
-                     descriptions_hash: { 'en' => Term.new(language_code: 'en',
+                     labels_hash: { 'en' => Model::Term.new(language_code: 'en', value: 'DS ID') },
+                     descriptions_hash: { 'en' => Model::Term.new(language_code: 'en',
                                                            value: 'Digital Scriptorium 2.0 identifier') })
       end
       let(:representer) { described_class.new(property) }
@@ -45,7 +42,7 @@ module WikibaseRepresentable
       end
 
       it 'deserializes a property object' do
-        expect(described_class.new(Property.new).from_json(json)).to eq(property)
+        expect(described_class.new(Model::Property.new).from_json(json)).to eq(property)
       end
     end
   end

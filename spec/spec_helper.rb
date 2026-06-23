@@ -2,3 +2,6 @@
 
 require 'simplecov'
 SimpleCov.start
+
+require 'rspec'
+require 'wikibase_representable'

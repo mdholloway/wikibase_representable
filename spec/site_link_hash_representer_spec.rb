@@ -1,19 +1,16 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/site_link_hash_representer'
+require 'spec_helper'
 
 module WikibaseRepresentable
   module Representers
-    include WikibaseRepresentable::Model
-
     describe SiteLinkHashRepresenter do
       let(:site_link_hash) do
         {
-          'enwiki' => SiteLink.new(site_id: 'enwiki',
+          'enwiki' => Model::SiteLink.new(site_id: 'enwiki',
                                    page_name: 'Douglas_Adams',
                                    badges: ['Q17437798']),
-          'dewiki' => SiteLink.new(site_id: 'dewiki',
+          'dewiki' => Model::SiteLink.new(site_id: 'dewiki',
                                    page_name: 'Douglas_Adams',
                                    badges: ['Q17437798'])
         }
@@ -29,7 +26,7 @@ module WikibaseRepresentable
       end
 
       it 'deserializes a sitelink list object' do
-        expect(described_class.new(SiteLinkHash.new).from_json(json)).to eq(site_link_hash)
+        expect(described_class.new(Model::SiteLinkHash.new).from_json(json)).to eq(site_link_hash)
       end
     end
   end

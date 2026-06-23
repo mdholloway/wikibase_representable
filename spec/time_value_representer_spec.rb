@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/time_value_representer'
+require 'spec_helper'
 
 module WikibaseRepresentable
   module Representers
@@ -14,7 +13,7 @@ module WikibaseRepresentable
                                                precision: 11,
                                                calendar_model: 'http://www.wikidata.org/entity/Q1985727')
       end
-      let(:time_value) { TimeValue.new(value: time) }
+      let(:time_value) { Model::TimeValue.new(value: time) }
       let(:representer) { described_class.new(time_value) }
       let(:json) do
         '{"value":{"time":"+2023-02-03T00:00:00Z","timezone":0,"before":0,"after":0,"precision":11,"calendarmodel":"http://www.wikidata.org/entity/Q1985727"},"type":"time"}'

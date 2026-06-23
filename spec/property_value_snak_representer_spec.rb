@@ -1,17 +1,14 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/property_value_snak_representer'
+require 'spec_helper'
 
 module WikibaseRepresentable
   module Representers
-    include WikibaseRepresentable::Model
-
     describe PropertyValueSnakRepresenter do
       describe 'given a numeric data value' do
-        let(:data_value) { DataValue.new(type: 'number', value: 42) }
+        let(:data_value) { Model::DataValue.new(type: 'number', value: 42) }
         let(:snak) do
-          PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
+          Model::PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
         end
         let(:representer) { described_class.new(snak) }
         let(:json) { '{"snaktype":"value","property":"P1","hash":"abcdef","datavalue":{"value":42,"type":"number"}}' }
@@ -21,14 +18,14 @@ module WikibaseRepresentable
         end
 
         it 'deserializes a property value snak object' do
-          expect(described_class.new(PropertyValueSnak.new).from_json(json)).to eq(snak)
+          expect(described_class.new(Model::PropertyValueSnak.new).from_json(json)).to eq(snak)
         end
       end
 
       describe 'given a string data value' do
-        let(:data_value) { DataValue.new(type: 'string', value: 'Douglas Adams') }
+        let(:data_value) { Model::DataValue.new(type: 'string', value: 'Douglas Adams') }
         let(:snak) do
-          PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
+          Model::PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
         end
         let(:representer) { described_class.new(snak) }
         let(:json) do
@@ -40,7 +37,7 @@ module WikibaseRepresentable
         end
 
         it 'deserializes a property value snak object' do
-          expect(described_class.new(PropertyValueSnak.new).from_json(json)).to eq(snak)
+          expect(described_class.new(Model::PropertyValueSnak.new).from_json(json)).to eq(snak)
         end
       end
 
@@ -53,9 +50,9 @@ module WikibaseRepresentable
                                                  precision: 11,
                                                  calendar_model: 'http://www.wikidata.org/entity/Q1985727')
         end
-        let(:data_value) { TimeValue.new(value: time) }
+        let(:data_value) { Model::TimeValue.new(value: time) }
         let(:snak) do
-          PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
+          Model::PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
         end
         let(:representer) { described_class.new(snak) }
         let(:json) do
@@ -69,15 +66,15 @@ module WikibaseRepresentable
         end
 
         it 'deserializes a property value snak object' do
-          expect(described_class.new(PropertyValueSnak.new).from_json(json)).to eq(snak)
+          expect(described_class.new(Model::PropertyValueSnak.new).from_json(json)).to eq(snak)
         end
       end
 
       describe 'given an entity ID value' do
-        let(:entity_id) { EntityId.new(id: 'Q42', numeric_id: 42, entity_type: 'item') }
-        let(:data_value) { EntityIdValue.new(value: entity_id) }
+        let(:entity_id) { Model::EntityId.new(id: 'Q42', numeric_id: 42, entity_type: 'item') }
+        let(:data_value) { Model::EntityIdValue.new(value: entity_id) }
         let(:snak) do
-          PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
+          Model::PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: data_value)
         end
         let(:representer) { described_class.new(snak) }
         let(:json) do
@@ -90,7 +87,7 @@ module WikibaseRepresentable
         end
 
         it 'deserializes a property value snak object' do
-          expect(described_class.new(PropertyValueSnak.new).from_json(json)).to eq(snak)
+          expect(described_class.new(Model::PropertyValueSnak.new).from_json(json)).to eq(snak)
         end
       end
     end
