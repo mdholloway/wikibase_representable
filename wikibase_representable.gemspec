@@ -32,7 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'multi_json', '~> 1.15'
   spec.add_dependency 'representable', '~> 3.2'
-  spec.add_development_dependency 'bundler', '~> 2.5'
   spec.add_development_dependency 'diffy', '~> 3.4'
   spec.add_development_dependency 'pry', '~> 0.15.2'
   spec.add_development_dependency 'rake', '~> 13.2'
