@@ -8,11 +8,11 @@ module WikibaseRepresentable
       let(:site_link_hash) do
         {
           'enwiki' => Model::SiteLink.new(site_id: 'enwiki',
-                                   page_name: 'Douglas_Adams',
-                                   badges: ['Q17437798']),
+                                          page_name: 'Douglas_Adams',
+                                          badges: ['Q17437798']),
           'dewiki' => Model::SiteLink.new(site_id: 'dewiki',
-                                   page_name: 'Douglas_Adams',
-                                   badges: ['Q17437798'])
+                                          page_name: 'Douglas_Adams',
+                                          badges: ['Q17437798'])
         }
       end
       let(:representer) { described_class.new(site_link_hash) }

@@ -13,8 +13,8 @@ module WikibaseRepresentable
       end
       let(:item) do
         Model::Item.new(id: 'Q42',
-                 labels_hash: labels_hash,
-                 descriptions_hash: descriptions_hash)
+                        labels_hash: labels_hash,
+                        descriptions_hash: descriptions_hash)
       end
       let(:representer) { described_class.new(item) }
       let(:json) do
