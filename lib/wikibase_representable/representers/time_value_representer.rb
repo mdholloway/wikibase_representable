@@ -8,9 +8,8 @@ module WikibaseRepresentable
     # Represents a time value object
     class TimeValueRepresenter < Representable::Decorator
       include Representable::JSON
-      include WikibaseRepresentable::Model
 
-      property :value, decorator: TimeRepresenter, class: Time
+      property :value, decorator: TimeRepresenter, class: Model::Time
       property :type
     end
   end

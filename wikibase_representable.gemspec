@@ -13,9 +13,10 @@ Gem::Specification.new do |spec|
                        'Wikibase entities to and from JSON.'
   spec.homepage      = 'https://github.com/mdholloway/wikibase_representable'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.0'
+  spec.required_ruby_version = '>= 3.2'
 
   spec.metadata['homepage_uri'] = spec.homepage
+  spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['rubygems_mfa_required'] = 'true'
 
   # Specify which files should be added to the gem when it is released.
@@ -27,13 +28,10 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
     end
   end
-  spec.bindir = 'exe'
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_dependency 'multi_json', '~> 1.15'
   spec.add_dependency 'representable', '~> 3.2'
-  spec.add_development_dependency 'bundler', '~> 2.5'
   spec.add_development_dependency 'diffy', '~> 3.4'
   spec.add_development_dependency 'pry', '~> 0.15.2'
   spec.add_development_dependency 'rake', '~> 13.2'

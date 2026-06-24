@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/time_representer'
+require 'spec_helper'
 
 module WikibaseRepresentable
   module Representers

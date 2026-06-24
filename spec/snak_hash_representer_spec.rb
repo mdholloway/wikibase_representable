@@ -1,21 +1,18 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/snak_hash_representer'
+require 'spec_helper'
 
 module WikibaseRepresentable
   module Representers
-    include WikibaseRepresentable::Model
-
     describe SnakHashRepresenter do
-      let(:number_value) { DataValue.new(type: 'number', value: 42) }
-      let(:string_value) { DataValue.new(type: 'string', value: 'Douglas Adams') }
-      let(:entity_id_value) { EntityIdValue.new(value: EntityId.new(id: 'Q42', numeric_id: 42, entity_type: 'item')) }
+      let(:number_value) { Model::DataValue.new(type: 'number', value: 42) }
+      let(:string_value) { Model::DataValue.new(type: 'string', value: 'Douglas Adams') }
+      let(:entity_id_value) { Model::EntityIdValue.new(value: Model::EntityId.new(id: 'Q42', numeric_id: 42, entity_type: 'item')) }
       let(:snak_hash) do
         {
-          'P1' => [PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: number_value)],
-          'P2' => [PropertyValueSnak.new(property_id: 'P2', hash: 'abcdef', data_value: string_value)],
-          'P3' => [PropertyValueSnak.new(property_id: 'P3', hash: 'abcdef', data_value: entity_id_value)]
+          'P1' => [Model::PropertyValueSnak.new(property_id: 'P1', hash: 'abcdef', data_value: number_value)],
+          'P2' => [Model::PropertyValueSnak.new(property_id: 'P2', hash: 'abcdef', data_value: string_value)],
+          'P3' => [Model::PropertyValueSnak.new(property_id: 'P3', hash: 'abcdef', data_value: entity_id_value)]
         }
       end
       let(:json) do
@@ -67,7 +64,7 @@ module WikibaseRepresentable
       end
 
       it 'deserializes a list of snaks' do
-        expect(described_class.new(SnakHash.new).from_json(json)).to eq(snak_hash)
+        expect(described_class.new(Model::SnakHash.new).from_json(json)).to eq(snak_hash)
       end
     end
   end

@@ -11,30 +11,29 @@ module WikibaseRepresentable
     # Representer for property value snaks.
     class PropertyValueSnakRepresenter < Representable::Decorator
       include Representable::JSON
-      include WikibaseRepresentable::Model
 
       property :type, as: 'snaktype'
       property :property_id, as: 'property'
       property :hash
       property :data_value, as: 'datavalue', decorator: lambda { |input:, **|
-        if input.is_a? EntityIdValue
+        if input.is_a? Model::EntityIdValue
           EntityIdValueRepresenter
-        elsif input.is_a? TimeValue
+        elsif input.is_a? Model::TimeValue
           TimeValueRepresenter
         else
           DataValueRepresenter
         end
       }, class: lambda { |input:, **|
-        if input['type'] == EntityIdValue::TYPE
-          EntityIdValue
-        elsif input['type'] == TimeValue::TYPE
-          TimeValue
+        if input['type'] == Model::EntityIdValue::TYPE
+          Model::EntityIdValue
+        elsif input['type'] == Model::TimeValue::TYPE
+          Model::TimeValue
         else
-          DataValue
+          Model::DataValue
         end
       }
 
-      collection_representer class: PropertyValueSnak
+      collection_representer class: Model::PropertyValueSnak
     end
   end
 end

@@ -1,23 +1,20 @@
 # frozen_string_literal: true
 
-require 'wikibase_representable/model'
-require 'wikibase_representable/representers/item_representer'
+require 'spec_helper'
 
 module WikibaseRepresentable
   module Representers
-    include WikibaseRepresentable::Model
-
     describe ItemRepresenter do
       let(:labels_hash) do
-        { 'en' => Term.new(language_code: 'en', value: 'Douglas Adams') }
+        { 'en' => Model::Term.new(language_code: 'en', value: 'Douglas Adams') }
       end
       let(:descriptions_hash) do
-        { 'en' => Term.new(language_code: 'en', value: 'writer') }
+        { 'en' => Model::Term.new(language_code: 'en', value: 'writer') }
       end
       let(:item) do
-        Item.new(id: 'Q42',
-                 labels_hash: labels_hash,
-                 descriptions_hash: descriptions_hash)
+        Model::Item.new(id: 'Q42',
+                        labels_hash: labels_hash,
+                        descriptions_hash: descriptions_hash)
       end
       let(:representer) { described_class.new(item) }
       let(:json) do
@@ -49,7 +46,7 @@ module WikibaseRepresentable
       end
 
       it 'deserializes an item object' do
-        expect(described_class.new(Item.new).from_json(json)).to eq(item)
+        expect(described_class.new(Model::Item.new).from_json(json)).to eq(item)
       end
     end
   end
